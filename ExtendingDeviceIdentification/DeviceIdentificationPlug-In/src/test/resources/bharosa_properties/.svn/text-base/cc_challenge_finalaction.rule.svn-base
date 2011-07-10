@@ -1,0 +1,57 @@
+<!-- cc_challenge_finalaction.rule
+This file is expected to contain rules that return one and only one action back to the caller.
+Therefore, every rule should clear the agenda if it is fired.
+-->
+<rule name="cc_challenge_block" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+	<java:condition>actionList.contains("cc_challenge_block")</java:condition>
+	<java:consequence>
+		if (logger != null)
+			logger.debug("Executing cc_challenge_block condition");
+		finalAction.append("cc_challenge_block");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="block" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+	<java:condition>actionList.contains("Block")</java:condition>
+	<java:consequence>
+		if (logger != null)
+			logger.debug("Executing Block condition");
+		finalAction.append("Block");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="no_user_questions" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+	<java:condition>actionList.contains("no_user_questions")</java:condition>
+	<java:consequence>
+		if (logger != null)
+			logger.debug("Executing no_user_questions condition");
+		finalAction.append("no_user_questions");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="next_question" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+	<java:condition>actionList.contains("next_question")</java:condition>
+	<java:consequence>
+		if (logger != null)
+			logger.debug("Executing next_question condition");
+		finalAction.append("next_question");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="allow" no-loop="true" salience="100"> <!-- Default is allow -->
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+	<java:consequence>
+		if (logger != null)
+			logger.debug("Executing default Allow condition");
+		finalAction.append("Allow");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>

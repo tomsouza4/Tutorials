@@ -1,0 +1,90 @@
+<!-- 
+This file is expected to contain rules that return one and only one action back to the caller.
+Therefore, every rule should clear the agenda if it is fired.
+-->
+
+
+<rule name="create_new device" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+
+	<java:condition>actionList.contains("create_new")</java:condition>
+
+	<java:consequence>
+		if (logger != null){
+			logger.debug("Executing create_new condition");
+		}
+		finalAction.append("create_new");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="use_either" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+
+	<java:condition>actionList.contains("use_either")</java:condition>
+
+	<java:consequence>
+		if (logger != null){
+			logger.debug("Executing use_either condition");
+		}
+		finalAction.append("use_secure");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="use_secure cookie" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+
+	<java:condition>actionList.contains("use_secure")</java:condition>
+
+	<java:consequence>
+		if (logger != null){
+			logger.debug("Executing use_secure condition");
+		}
+		finalAction.append("use_secure");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="use_digital cookie" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+
+	<java:condition>actionList.contains("use_digital")</java:condition>
+
+	<java:consequence>
+		if (logger != null){
+			logger.debug("Executing use_digital condition");
+		}
+		finalAction.append("use_digital");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+
+<rule name="use_secure_fp" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+
+	<java:condition>actionList.contains("use_secure_fp")</java:condition>
+
+	<java:consequence>
+		if (logger != null){
+			logger.debug("Executing use_secure_fp");
+		}
+		finalAction.append("use_secure_fp");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>
+
+<rule name="use_digital_fp" no-loop="true" salience="100">
+	<parameter identifier="actionList"><class>java.util.List</class></parameter>
+
+	<java:condition>actionList.contains("use_digital_fp")</java:condition>
+
+	<java:consequence>
+		if (logger != null){
+			logger.debug("Executing use_digital_fp condition");
+		}
+		finalAction.append("use_digital_fp");
+		drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+	</java:consequence>
+</rule>

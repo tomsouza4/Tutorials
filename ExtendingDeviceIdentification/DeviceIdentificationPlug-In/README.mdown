@@ -1,0 +1,18 @@
+**Building**
+
+To build this project use maven as follows:
+
+    mvn package
+
+**OAAM Environment Properties**
+
+Thee following properties need to be defined in the OAAM Admin Environment Properties interface.
+
+    vcrypt.fingerprint.type.enum.OnOAAMApplet=101
+    vcrypt.fingerprint.type.enum.OnOAAMApplet.name=OnOAAM Java Applet
+    vcrypt.fingerprint.type.enum.OnOAAMApplet.description=Example Implementation of the Device Identification Plug-In
+    vcrypt.fingerprint.type.enum.OnOAAMApplet.processor=com.onoaam.did.OnOAAMDeviceIdentificationPlugIn
+    vcrypt.fingerprint.type.enum.OnOAAMApplet.header_list=java.vendor,os.name,java.vm.specification.vendor,java.runtime.version,browser.version,os.version,java.vm.version,java.vm.vendor
+    vcrypt.fingerprint.type.enum.OnOAAMApplet.header_name_nv=java.vendor,Java Vendor,os.name,Operating System,java.vm.specification.vendor,Java VM Spec Vendor,java.runtime.version,Java Version,browser.version,Browser Version,os.version,Operating System Version,java.vm.version,Java Version,java.vm.vendor,Java Vendor
+    vcrypt.fingerprint.type.enum.OnOAAMApplet.header_value_nv=t,true,f,false
+    bharosa.uio.default.device.identification.scheme=OnOAAMApplet

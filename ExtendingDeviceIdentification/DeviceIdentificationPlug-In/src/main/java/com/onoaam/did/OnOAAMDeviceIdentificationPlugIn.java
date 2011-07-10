@@ -1,57 +1,141 @@
 package com.onoaam.did;
 
+import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.bharosa.common.logger.Logger;
 import com.bharosa.uio.processor.device.DeviceIdentificationProcessorBase;
+import com.bharosa.uio.util.UIOContext;
+import com.bharosa.vcrypt.common.util.VCryptServletUtil;
 
 /**
  * @author Paul Codding
  * 
- *         Sample Java Applet used to retrieve the user's computer's MAC
- *         address, as well as a handful of System properties to form a
- *         fingerprint. This applet uses the java.util.prefs.Preferences API to
- *         store/retrieve the rotating 'cookie equivalent' value.
- * 
- *         This Applet uses code examples from:
- *         http://www.mkyong.com/java/how-to-get-mac-address-in-java/
  */
 public class OnOAAMDeviceIdentificationPlugIn extends
 		DeviceIdentificationProcessorBase {
+	static Logger logger = Logger
+			.getLogger(OnOAAMDeviceIdentificationPlugIn.class);
+	public static final String PLUG_IN_NAME = "OnOAAMApplet";
+	public static final int CLIENT_TYPE = 101;
+	public static final int FINGERPRINT_TYPE = 101;
+	public static final String FINGERPRINT_DELIMITER = "#^#";
 
-	@Override
+	public static String[] fingerprintDataNames = new String[] { "java.vendor",
+			"os.name", "java.vm.specification.vendor", "java.runtime.version",
+			"browser.version", "os.version", "java.vm.version",
+			"java.vm.vendor", "device.macAddress" };
+	private String fingerprint;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.bharosa.uio.processor.device.DeviceIdentificationProcessorIntf#
+	 * getClientDataMap()
+	 */
 	public Map<String, Object> getClientDataMap() {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String, Object> submittedFingerPrintData = new HashMap<String, Object>();
+		if (fingerprint != null) {
+			String[] fingerprintPieces = fingerprint
+					.split(FINGERPRINT_DELIMITER);
+			for (int fingerprintDataNamesIndex = 0; fingerprintDataNamesIndex < fingerprintDataNames.length; fingerprintDataNamesIndex++) {
+				String key = fingerprintDataNames[fingerprintDataNamesIndex];
+				String value = null;
+				for (int fingerprintPiecesIndex = 0; fingerprintPiecesIndex < fingerprintPieces.length; fingerprintPiecesIndex++) {
+					if (fingerprintPieces[fingerprintPiecesIndex].equals(key))
+						try {
+							value = fingerprintPieces[fingerprintPiecesIndex + 1];
+						} catch (ArrayIndexOutOfBoundsException e) {
+							logger.error(e);
+						}
+				}
+				submittedFingerPrintData.put(key, value);
+			}
+		} else
+			logger.error("Fingerprint not set, was getFingerPrint() called?");
+
+		return submittedFingerPrintData;
 	}
 
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.bharosa.uio.processor.device.DeviceIdentificationProcessorIntf#
+	 * getClientType()
+	 */
 	public int getClientType() {
-		// TODO Auto-generated method stub
-		return 0;
+		return CLIENT_TYPE;
 	}
 
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.bharosa.uio.processor.device.DeviceIdentificationProcessorIntf#
+	 * getDigitalCookie()
+	 */
 	public String getDigitalCookie() {
-		// TODO Auto-generated method stub
-		return null;
+		HttpServletRequest request = UIOContext.getCurrentInstance()
+				.getRequest();
+		String submittedDigitalCookie = request.getParameter("v");
+		return submittedDigitalCookie;
 	}
 
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.bharosa.uio.processor.device.DeviceIdentificationProcessorIntf#
+	 * getFingerPrint()
+	 */
 	public String getFingerPrint() {
-		// TODO Auto-generated method stub
-		return null;
+		// Obtain the HttpServletRequest
+		HttpServletRequest request = UIOContext.getCurrentInstance()
+				.getRequest();
+
+		// Obtain the fingerprint submitted by the applet
+		String submittedFingerprint = request.getParameter("fp");
+
+		if (submittedFingerprint != null) {
+			/*
+			 * Call VCryptServletUtil.getFlashFingerPrint(String client, String
+			 * fpStr) to construct the fingerprint
+			 * 
+			 * Note: The 'vfc' is used for the client because it is the value
+			 * that is expected by the method.
+			 */
+			fingerprint = VCryptServletUtil.getFlashFingerPrint("vfc",
+					submittedFingerprint);
+			if (logger.isDebugEnabled())
+				logger.debug("Fingerprint: " + fingerprint);
+		} else
+			logger.error("Could not find fp value in the request");
+
+		return fingerprint;
 	}
 
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.bharosa.uio.processor.device.DeviceIdentificationProcessorIntf#
+	 * getFingerPrintType()
+	 * 
+	 * This method returns the value that is defined as the
+	 * vcrypt.fingerprint.type.enum.OnOAAMApplet=<integer> in the Environment
+	 * Properties set in the OAAM Admin console
+	 */
 	public int getFingerPrintType() {
-		// TODO Auto-generated method stub
-		return 0;
+		return FINGERPRINT_TYPE;
 	}
 
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.bharosa.uio.processor.device.DeviceIdentificationProcessorIntf#
+	 * getPluginHTML()
+	 */
 	public String getPluginHTML() {
-		// TODO Auto-generated method stub
-		return null;
+		String pluginHtml = "<applet alt=\"Java is disabled\" name=\"DeviceIdentificationExtensionApplet\" width=\"225\" height=\"28\" code=\"com.onoaam.did.DeviceIdentificationExtensionApplet\" codebase=\"applet\" archive=\"OnOAAMDeviceExtensionApplet.jar\"></applet>";
+		return pluginHtml;
 	}
-
 }

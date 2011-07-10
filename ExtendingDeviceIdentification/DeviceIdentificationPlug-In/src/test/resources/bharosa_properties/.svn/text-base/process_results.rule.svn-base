@@ -1,0 +1,1372 @@
+<rule name="Block" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("Block")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing Block condition");
+        }
+
+        finalAction.append("Block");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="challenge_block" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("challenge_block")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing challenge_block condition");
+        }
+
+        finalAction.append("challenge_block");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="Logout" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("Logout")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        	logger.debug("Executing Logout condition");
+        }
+        finalAction.append("Logout");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="bharosa_invalid_user" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("bharosa_invalid_user")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing bharosa_invalid_user condition");
+        }
+
+        finalAction.append("bharosa_invalid_user");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="Token" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("Token")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing Token condition");
+        }
+
+        finalAction.append("Token");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="ChallengeResponse" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeResponse")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeResponse condition");
+        }
+
+        finalAction.append("ChallengeResponse");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="OTP" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("OTP")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing OTP condition");
+        }
+
+        finalAction.append("OTP");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="PartialPassword" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PartialPassword")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PartialPassword condition");
+        }
+
+        finalAction.append("PartialPassword");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+
+<rule name="TransactionSigning" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("TransactionSigning")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing TransactionSigning condition");
+        }
+
+        finalAction.append("TransactionSigning");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="Textpad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+    <java:condition>actionList.contains("Textpad")</java:condition>
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing Textpad condition");
+        finalAction.append("Textpad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="Pinpad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+    <java:condition>actionList.contains("Pinpad")</java:condition>
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing Pinpad condition");
+        finalAction.append("Pinpad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="Keypad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+    <java:condition>actionList.contains("Keypad")</java:condition>
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing Keypad condition");
+        finalAction.append("Keypad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="Questionpad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+    <java:condition>actionList.contains("Questionpad")</java:condition>
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing Questionpad condition");
+        finalAction.append("Questionpad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="Html" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+    <java:condition>actionList.contains("Html")</java:condition>
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing Html condition");
+        finalAction.append("Html");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="Password" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("Password")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing Password condition");
+        }
+
+        finalAction.append("Password");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordHTML" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordHTML")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordHTML condition");
+        }
+
+        finalAction.append("PasswordHTML");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordTextPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordTextPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordTextPad condition");
+        }
+
+        finalAction.append("PasswordTextPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordTextPadGeneric" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordTextPadGeneric")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordTextPadGeneric condition");
+        }
+
+        finalAction.append("PasswordTextPadGeneric");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordTextPadFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordTextPadFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordTextPadFirstTime condition");
+        }
+
+        finalAction.append("PasswordTextPadFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordTextPadGenericFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordTextPadGenericFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordTextPadGenericFirstTime condition");
+        }
+
+        finalAction.append("PasswordTextPadGenericFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordPinPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordPinPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordPinPad condition");
+        }
+
+        finalAction.append("PasswordPinPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordPinPadGeneric" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordPinPadGeneric")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordPinPadGeneric condition");
+        }
+
+        finalAction.append("PasswordPinPadGeneric");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordPinPadFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordPinPadFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordPinPadFirstTime condition");
+        }
+
+        finalAction.append("PasswordPinPadFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordPinPadGenericFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordPinPadGenericFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordPinPadGenericFirstTime condition");
+        }
+
+        finalAction.append("PasswordPinPadGenericFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadFull" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadFull")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadFull condition");
+        }
+
+        finalAction.append("PasswordKeypadFull");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadFullGeneric" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadFullGeneric")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadFullGeneric condition");
+        }
+
+        finalAction.append("PasswordKeypadFullGeneric");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadFullFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadFullFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadFullFirstTime condition");
+        }
+
+        finalAction.append("PasswordKeypadFullFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadFullGenericFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadFullGenericFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadFullGenericFirstTime condition");
+        }
+
+        finalAction.append("PasswordKeypadFullGenericFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlpha" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlpha")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlpha condition");
+        }
+
+        finalAction.append("PasswordKeypadAlpha");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlphaGeneric" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlphaGeneric")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlphaGeneric condition");
+        }
+
+        finalAction.append("PasswordKeypadAlphaGeneric");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlphaFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlphaFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlphaFirstTime condition");
+        }
+
+        finalAction.append("PasswordKeypadAlphaFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlphaGenericFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlphaGenericFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlphaGenericFirstTime condition");
+        }
+
+        finalAction.append("PasswordKeypadAlphaGenericFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlphaTurk" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlphaTurk")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlphaTurk condition");
+        }
+
+        finalAction.append("PasswordKeypadAlphaTurk");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlphaTurkGeneric" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlphaTurkGeneric")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlphaTurkGeneric condition");
+        }
+
+        finalAction.append("PasswordKeypadAlphaTurkGeneric");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlphaTurkFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlphaTurkFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlphaTurkFirstTime condition");
+        }
+
+        finalAction.append("PasswordKeypadAlphaTurkFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordKeypadAlphaTurkGenericFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordKeypadAlphaTurkGenericFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordKeypadAlphaTurkGenericFirstTime condition");
+        }
+
+        finalAction.append("PasswordKeypadAlphaTurkGenericFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordSlider" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordSlider")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordSlider condition");
+        }
+
+        finalAction.append("PasswordSlider");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="PasswordSliderFirstTime" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("PasswordSliderFirstTime")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing PasswordSliderFirstTime condition");
+        }
+
+        finalAction.append("PasswordSliderFirstTime");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserInfo" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserInfo")</java:condition>
+
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing RegisterUserInfo condition");
+        finalAction.append("Register");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>        
+<rule name="RegisterPreferences" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterPreferences")</java:condition>
+
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing RegisterPreferences condition");
+        finalAction.append("Register");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>        
+<rule name="RegisterImageTextPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterImageTextPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterImageTextPad condition");
+        }
+
+        finalAction.append("RegisterImageTextPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterImagePinPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterImagePinPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterImagePinPad condition");
+        }
+
+        finalAction.append("RegisterImagePinPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterImageKeyPadFull" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterImageKeyPadFull")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterImageKeyPadFull condition");
+        }
+
+        finalAction.append("RegisterImageKeyPadFull");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterImageKeyPadAlpha" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterImageKeyPadAlpha")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterImageKeyPadAlpha condition");
+        }
+
+        finalAction.append("RegisterImageKeyPadAlpha");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterImageKeyPadAlphaTurk" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterImageKeyPadAlphaTurk")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterImageKeyPadAlphaTurk condition");
+        }
+
+        finalAction.append("RegisterImageKeyPadAlphaTurk");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterImageQuestionPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterImageQuestionPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterImageQuestionPad condition");
+        }
+
+        finalAction.append("RegisterImageQuestionPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestions" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestions")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestions condition");
+        }
+
+        finalAction.append("RegisterQuestions");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterChallengeQuestions" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterChallengeQuestions")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterChallengeQuestions condition");
+        }
+
+        finalAction.append("Register");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUser" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUser")</java:condition>
+
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing RegisterUser condition");
+        finalAction.append("RegisterUser");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="Register" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("Register")</java:condition>
+
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing Registercondition");
+        finalAction.append("Register");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptional" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptional")</java:condition>
+
+    <java:consequence>
+        if (logger != null)
+            logger.debug("Executing RegisterUserOptional condition");
+        finalAction.append("RegisterUserOptional");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserHTML" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserHTML")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserHTML condition");
+        }
+
+        finalAction.append("RegisterUserHTML");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptionalHTML" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptionalHTML")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserOptionalHTML condition");
+        }
+
+        finalAction.append("RegisterUserOptionalHTML");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsHTML" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsHTML")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsHTML condition");
+        }
+
+        finalAction.append("RegisterQuestionsHTML");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserQuestionPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserQuestionPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserQuestionPad condition");
+        }
+
+        finalAction.append("RegisterUserQuestionPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptionalQuestionPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptionalQuestionPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserOptionalQuestionPad condition");
+        }
+
+        finalAction.append("RegisterUserOptionalQuestionPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsQuestionPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsQuestionPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsQuestionPad condition");
+        }
+
+        finalAction.append("RegisterQuestionsQuestionPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsQuestionPadGeneric" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsQuestionPadGeneric")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsQuestionPadGeneric condition");
+        }
+
+        finalAction.append("RegisterQuestionsQuestionPadGeneric");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserTextPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserTextPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserTextPad condition");
+        }
+
+        finalAction.append("RegisterUserTextPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptionalTextPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptionalTextPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserOptionalTextPad condition");
+        }
+
+        finalAction.append("RegisterUserOptionalTextPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsTextPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsTextPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsTextPad condition");
+        }
+
+        finalAction.append("RegisterQuestionsTextPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserPinPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserPinPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserPinPad condition");
+        }
+
+        finalAction.append("RegisterUserPinPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptionalPinPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptionalPinPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserOptionalPinPad condition");
+        }
+
+        finalAction.append("RegisterUserOptionalPinPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsPinPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsPinPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsPinPad condition");
+        }
+
+        finalAction.append("RegisterQuestionsPinPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserKeyPadFull" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserKeyPadFull")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserKeyPadFull condition");
+        }
+
+        finalAction.append("RegisterUserKeyPadFull");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptionalKeyPadFull" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptionalKeyPadFull")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserOptionalKeyPadFull condition");
+        }
+
+        finalAction.append("RegisterUserOptionalKeyPadFull");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsKeyPadFull" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsKeyPadFull")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsKeyPadFull condition");
+        }
+
+        finalAction.append("RegisterQuestionsKeyPadFull");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserKeyPadAlpha" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserKeyPadAlpha")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserKeyPadAlpha condition");
+        }
+
+        finalAction.append("RegisterUserKeyPadAlpha");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptionalKeyPadAlpha" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptionalKeyPadAlpha")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserOptionalKeyPadAlpha condition");
+        }
+
+        finalAction.append("RegisterUserOptionalKeyPadAlpha");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsKeyPadAlpha" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsKeyPadAlpha")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsKeyPadAlpha condition");
+        }
+
+        finalAction.append("RegisterQuestionsKeyPadAlpha");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserKeypadAlphaTurk" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserKeypadAlphaTurk")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserKeypadAlphaTurk condition");
+        }
+
+        finalAction.append("RegisterUserKeypadAlphaTurk");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterUserOptionalKeypadAlphaTurk" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterUserOptionalKeypadAlphaTurk")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterUserOptionalKeypadAlphaTurk condition");
+        }
+
+        finalAction.append("RegisterUserOptionalKeypadAlphaTurk");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="RegisterQuestionsKeypadAlphaTurk" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("RegisterQuestionsKeypadAlphaTurk")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing RegisterQuestionsKeypadAlphaTurk condition");
+        }
+
+        finalAction.append("RegisterQuestionsKeypadAlphaTurk");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="Challenge" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("Challenge")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing Challenge condition");
+        }
+
+        finalAction.append("Challenge");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeQuestion" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeQuestion")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeQuestion condition");
+        }
+
+        finalAction.append("ChallengeQuestion");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeSMS" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeSMS")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeSMS condition");
+        }
+
+        finalAction.append("ChallengeSMS");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeEmail" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeEmail")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeEmail condition");
+        }
+
+        finalAction.append("ChallengeEmail");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeHTML" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeHTML")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeHTML condition");
+        }
+
+        finalAction.append("ChallengeHTML");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeQuestionPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeQuestionPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeQuestionPad condition");
+        }
+
+        finalAction.append("ChallengeQuestionPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeQuestionPadGeneric" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeQuestionPadGeneric")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeQuestionPadGeneric condition");
+        }
+
+        finalAction.append("ChallengeQuestionPadGeneric");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeTextPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeTextPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeTextPad condition");
+        }
+
+        finalAction.append("ChallengeTextPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="ChallengePinPad" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengePinPad")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengePinPad condition");
+        }
+
+        finalAction.append("ChallengePinPad");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeKeypadFull" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeKeypadFull")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeKeypadFull condition");
+        }
+
+        finalAction.append("ChallengeKeypadFull");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeKeypadAlpha" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeKeypadAlpha")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeKeypadAlpha condition");
+        }
+
+        finalAction.append("ChallengeKeypadAlpha");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="ChallengeKeypadAlphaTurk" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("ChallengeKeypadAlphaTurk")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing ChallengeKeypadAlphaTurk condition");
+        }
+
+        finalAction.append("ChallengeKeypadAlphaTurk");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+<rule name="Allow" no-loop="true" salience="100">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>actionList.contains("Allow")</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("Executing Allow condition");
+        }
+
+        finalAction.append("Allow");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>
+
+<rule name="Default No Result" no-loop="true" salience="10">
+    <parameter identifier="actionList">
+        <class>java.util.List</class>
+    </parameter>
+
+    <java:condition>true</java:condition>
+
+    <java:consequence>
+        if (logger != null){
+        logger.debug("No rules result, so lets allow the user ");
+        }
+
+        finalAction.append("Allow");
+        drools.clearAgenda();  <!-- This stops any other rules from being evaluated -->
+    </java:consequence>
+</rule>

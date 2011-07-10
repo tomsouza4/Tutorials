@@ -1,3 +1,6 @@
 Manifest-Version: 1.0
 Class-Path: 
 
+Extension-Name: oracle.oaam.extensions
+Specification-Version: 99.9.9.9.9
+Implementation-Version: 99.9.9.9.9

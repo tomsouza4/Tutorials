@@ -1,0 +1,1120 @@
+#Copied from legacy bharosauio.properties
+#properties related to ASA UIO app.
+
+bharosa.config.resourcebundle.clientoverride=client_resource
+
+vcrypt.tracker.auth.challenge.counter=false
+
+# Default Checkpoint Processors
+bharosa.uio.default.checkpoint.processor.default = com.bharosa.uio.processor.checkpoint.DefaultCheckpointProcessor
+bharosa.uio.default.checkpoint.processor.preauth = com.bharosa.uio.processor.checkpoint.PreAuthCheckpointProcessor
+bharosa.uio.default.checkpoint.processor.postauth = com.bharosa.uio.processor.checkpoint.PostAuthCheckpointProcessor
+bharosa.uio.default.checkpoint.processor.ChallengeUser = com.bharosa.uio.processor.checkpoint.ChallengeCheckpointProcessor
+bharosa.uio.default.checkpoint.processor.ForgotPassword = com.bharosa.uio.processor.checkpoint.ForgotPasswordCheckpointProcessor
+bharosa.uio.default.checkpoint.processor.authentiPad = com.bharosa.uio.processor.checkpoint.AuthentiPadCheckpointProcessor
+
+# Default Rules Result Processors
+bharosa.uio.default.rules.result.processor.default = com.bharosa.uio.processor.rules.result.DefaultRulesResultProcessor
+bharosa.uio.default.rules.result.processor.Password = com.bharosa.uio.processor.rules.result.PasswordRulesResultProcessor
+bharosa.uio.default.rules.result.processor.Challenge = com.bharosa.uio.processor.rules.result.ChallengeRulesResultProcessor
+bharosa.uio.default.rules.result.processor.Register = com.bharosa.uio.processor.rules.result.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegistrationRequired = com.bharosa.uio.processor.rules.result.RegistrationRequiredRulesResultProcessor
+
+# Legacy Rules Result Processors
+bharosa.uio.default.rules.result.processor.PasswordTextPadGeneric = com.bharosa.uio.processor.rules.result.legacy.PasswordRulesResultProcessor
+bharosa.uio.default.rules.result.processor.PasswordTextPad = com.bharosa.uio.processor.rules.result.legacy.PasswordRulesResultProcessor
+bharosa.uio.default.rules.result.processor.PasswordKeypad = com.bharosa.uio.processor.rules.result.legacy.PasswordRulesResultProcessor
+bharosa.uio.default.rules.result.processor.PasswordKeypadFull = com.bharosa.uio.processor.rules.result.legacy.PasswordRulesResultProcessor
+bharosa.uio.default.rules.result.processor.PasswordHTML = com.bharosa.uio.processor.rules.result.legacy.PasswordRulesResultProcessor
+
+bharosa.uio.default.rules.result.processor.RegisterUserOptionalQuestionPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterUserQuestionPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterUserOptionalTextPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterUserTextPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterUser = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterUserOptional = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterQuestionsQuestionPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterQuestionsTextPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterQuestions = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterImageTextPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+bharosa.uio.default.rules.result.processor.RegisterImageKeyPad = com.bharosa.uio.processor.rules.result.legacy.RegisterRulesResultProcessor
+
+bharosa.uio.default.rules.result.processor.ChallengeQuestionPad = com.bharosa.uio.processor.rules.result.legacy.ChallengeRulesResultProcessor
+bharosa.uio.default.rules.result.processor.ChallengeSMS = com.bharosa.uio.processor.rules.result.legacy.ChallengeRulesResultProcessor
+bharosa.uio.default.rules.result.processor.ChallengeEmail = com.bharosa.uio.processor.rules.result.legacy.ChallengeRulesResultProcessor
+
+
+# Default providers
+bharosa.uio.default.password.auth.provider.classname = com.bharosa.uio.manager.auth.DummyAuthManager
+bharosa.uio.default.user.management.provider.classname = com.bharosa.uio.manager.user.DefaultPasswordManager
+
+# Enable / Disable use of AuthentiPad checkpoint.  If false, pad types will be determined by properties
+bharosa.uio.default.use.authentipad.checkpoint=true
+
+# Property based AuthentiPad devices, only used if AuthentiPad checkpoint is not enabled or fails to return a value.
+bharosa.uio.default.Password.authenticator.device=DeviceTextPad
+bharosa.uio.default.Password.authenticator.device.upgraded=DeviceKeyPadFull
+bharosa.uio.default.ChallengeQuestion.authenticator.device=DeviceQuestionPad
+bharosa.uio.default.RegisterQuestions.authenticator.device=DeviceQuestionPad
+bharosa.uio.default.ChallengeSMS.authenticator.device=DevicePinPad
+bharosa.uio.default.ChallengeEmail.authenticator.device=DevicePinPad
+## None, DeviceKeyPadFull, DeviceKeyPadAlpha, DeviceTextPad, DeviceQuestionPad, DevicePinPad, DeviceHTMLControl
+
+# Times to Challenge based on checkpoint and challenge type (PostAuth defaults to 1, ForgotPassword defaults to number of configured challenge questions (3))
+bharosa.uio.default.postauth.ChallengeQuestion.timestochallenge=1
+bharosa.uio.default.ForgotPassword.ChallengeQuestion.timestochallenge=3
+bharosa.uio.default.ForgotPassword.ChallengeEmail.timestochallenge=1
+bharosa.uio.default.ForgotPassword.ChallengeSMS.timestochallenge=1
+
+#ASA secure cookie flag
+oaam.cookies.secure=false
+
+#ASA HttpOnly cooke flag
+oaam.cookies.httpOnly=true
+
+oaam.secure.cookie.name = ora_oaam_vsc
+# oaam.secure.cookie.path =
+# oaam.secure.cookie.domain =
+bharosa.uio.default.clientoffset.cookie.name = ora_oaam_clientoffset
+
+bharosa.uio.login.dummy.password = test
+bharosa.uio.login.dummy.pin = 1111
+bharosa.uio.default.flash.fingerPrint.file = flash/bharosa8
+bharosa.uio.default.flash.fingerprint.enable = true
+bharosa.uio.deploy.dir = /bharosa_web
+bharosa.uio.default.validate.form.key=true
+
+bharosa.uio.otp.generate.code.length = 5
+bharosa.uio.otp.generate.code.characters = 1234567890
+
+bharosa.uio.default.signon.title = Sign On
+bharosa.uio.default.css = /css/bharosa_uio.css
+bharosa.uio.default.css.rtl = /css/bharosa_uio_rtl.css
+bharosa.uio.default.custom.css =
+bharosa.uio.default.custom.css.rtl =
+bharosa.uio.default.header = /header.jsp
+bharosa.uio.default.footer = /footer.jsp
+
+bharosa.uio.default.form.autocomplete=off
+
+bharosa.uio.default.multitenant.support=false
+bharosa.uio.default.numeric.userid=false
+bharosa.uio.default.default.user.group=Default
+bharosa.uio.default.change.default.user.group=true
+
+bharosa.uio.default.registerdevice.enabled=false
+
+bharosa.uio.default.ruletype.in_session.id=in_session
+bharosa.uio.default.ruletype.preauth.id=preauth
+bharosa.uio.default.ruletype.postauth.id=postauth
+
+bharosa.uio.default.jump.enabled=false
+bharosa.uio.default.jump.js.refresh.delay.refresh.delay=2000
+bharosa.uio.default.jump.meta.refresh.delay=3
+bharosa.uio.default.jump.js.nofingerprint.refresh.delay=0
+bharosa.uio.default.jump.meta.nofingerprint.refresh.delay=1
+
+bharosa.uio.default.password.entry.pad.name = Bharosa_Password_Pad
+bharosa.uio.default.password.entry.pad.textfield = Bharosa_Password_PadDataField
+
+bharosa.uio.default.password.DeviceKeyPadFull.frame =
+bharosa.uio.default.password.DeviceKeyPadAlpha.frame =
+bharosa.uio.default.password.DeviceTextPad.frame =
+bharosa.uio.default.password.DevicePinPad.frame =
+bharosa.uio.default.password.DeviceQuestionPad.frame =
+
+bharosa.uio.default.ChallengeQuestion.DeviceKeyPadFull.frame =
+bharosa.uio.default.ChallengeQuestion.DeviceKeyPadAlpha.frame =
+bharosa.uio.default.ChallengeQuestion.DeviceTextPad.frame =
+bharosa.uio.default.ChallengeQuestion.DevicePinPad.frame =
+bharosa.uio.default.ChallengeQuestion.DeviceQuestionPad.frame =
+
+bharosa.uio.default.ChallengeEmail.DeviceKeyPadFull.frame =
+bharosa.uio.default.ChallengeEmail.DeviceKeyPadAlpha.frame =
+bharosa.uio.default.ChallengeEmail.DeviceTextPad.frame =
+bharosa.uio.default.ChallengeEmail.DevicePinPad.frame =
+bharosa.uio.default.ChallengeEmail.DeviceQuestionPad.frame =
+
+bharosa.uio.default.ChallengeSMS.DeviceKeyPadFull.frame =
+bharosa.uio.default.ChallengeSMS.DeviceKeyPadAlpha.frame =
+bharosa.uio.default.ChallengeSMS.DeviceTextPad.frame =
+bharosa.uio.default.ChallengeSMS.DevicePinPad.frame =
+bharosa.uio.default.ChallengeSMS.DeviceQuestionPad.frame =
+
+bharosa.uio.default.register.DeviceKeyPadFull.frame = alphapad_bg/kp_O_preview.png
+bharosa.uio.default.register.DeviceKeyPadAlpha.frame = alphapad_bg/kp_O_preview.png
+bharosa.uio.default.register.DeviceTextPad.frame = textpad_bg/TP_O_preview.png
+bharosa.uio.default.register.DevicePinPad.frame = pinpad_bg/PP_O_preview.png
+bharosa.uio.default.register.DeviceQuestionPad.frame =
+
+bharosa.uio.default.register.info.skip.duration.enabled = false
+bharosa.uio.default.register.info.skip.duration.hours = 0
+
+bharosa.uio.default.register.authenticator.downgrade.enable=true
+bharosa.uio.default.register.authenticator.upgrade.enable=true
+
+bharosa.uio.default.register.questions.pad.name = Bharosa_Register_Pad
+# Both page level and global enable flags need to be true for device registration to display on the page
+bharosa.uio.default.register.questions.registerdevice.enabled=true
+
+bharosa.uio.default.register.userinfo.enabled=false
+# Both page level and global enable flags need to be true for device registration to display on the page
+bharosa.uio.default.register.userinfo.registerdevice.enabled=false
+bharosa.uio.default.register.userinfo.continue.enabled = true
+
+bharosa.uio.default.userpreferences.moreinfo.enable=true
+bharosa.uio.default.userpreferences.changeimage.enable=true
+bharosa.uio.default.userpreferences.resetquestions.enable=true
+bharosa.uio.default.userpreferences.changepassword.enable=true
+bharosa.uio.default.userpreferences.unregister.this.enabled=false
+bharosa.uio.default.userpreferences.unregister.all.enabled=false
+bharosa.uio.default.userpreferences.userinfo.enabled=false
+bharosa.uio.default.userpreferences.continue.enabled=true
+
+bharosa.uio.default.userpreferences.DeviceKeyPadFull.frame = alphapad_bg/kp_O_preview.png
+bharosa.uio.default.userpreferences.DeviceKeyPadAlpha.frame = alphapad_bg/kp_O_preview.png
+bharosa.uio.default.userpreferences.DeviceTextPad.frame = textpad_bg/TP_O_preview.png
+bharosa.uio.default.userpreferences.DevicePinPad.frame = pinpad_bg/PP_O_preview.png
+bharosa.uio.default.userpreferences.DeviceQuestionPadimage.frame =
+
+bharosa.uio.default.userpreferences.downgrade.enable=true
+bharosa.uio.default.userpreferences.downgrade.device=DeviceTextPad
+bharosa.uio.default.userpreferences.upgrade.enable=true
+bharosa.uio.default.userpreferences.upgrade.device=DeviceKeyPadFull
+## None, DeviceKeyPadFull, DeviceKeyPadAlpha, DeviceTextPad, DeviceQuestionPad, DevicePinPad, DeviceSlider, DeviceHTMLControl
+
+# real answer length validation is now done at the server side
+bharosa.uio.default.security.qa.length.max = 4000
+bharosa.uio.default.security.qa.length.min = 1
+bharosa.uio.default.security.question.retry.counter = 2
+
+bharosa.uio.default.challenge.pad.name = Bharosa_Challenge_Pad
+bharosa.uio.default.challenge.pad.textfield = Bharosa_Challenge_PadDataField
+bharosa.uio.default.challenge.dummy.question = What year did you graduate from college?
+bharosa.uio.default.challenge.wait.js.refresh.delay=0
+bharosa.uio.default.challenge.wait.meta.refresh.delay=35
+
+bharosa.uio.default.authentipad.is_ada_compliant = false
+bharosa.uio.default.authentipad.nonjs.support = false
+
+bharosa.uio.default.password.inputname=password
+bharosa.uio.default.username.inputname=userid
+bharosa.uio.default.username.label=Username
+bharosa.uio.default.username.case.sensitive=true
+
+bharosa.uio.default.credentials.concat = false
+bharosa.uio.default.credentials.enum = Enum for Login Credentials
+bharosa.uio.default.credentials.enum.username=0
+bharosa.uio.default.credentials.enum.username.name=Username
+bharosa.uio.default.credentials.enum.username.description=User's username
+bharosa.uio.default.credentials.enum.username.inputname=userid
+bharosa.uio.default.credentials.enum.username.maxlength=18
+bharosa.uio.default.credentials.enum.username.order=1
+
+bharosa.uio.default.changepassword.continue.enabled=false
+bharosa.uio.default.changepassword.action=changePassword.do
+bharosa.uio.default.changepassword.cancel.action=userPreferences.do
+bharosa.uio.default.changepassword.newpassword.inputname=newpassword
+bharosa.uio.default.changepassword.newpassword.pad.name = Bharosa_NewPassword_Pad
+bharosa.uio.default.changepassword.newpassword.pad.textfield = Bharosa_NewPassword_PadDataField
+bharosa.uio.default.changepassword.newpassword.label=New Password
+bharosa.uio.default.changepassword.newpassword.maxlength=18
+
+bharosa.uio.default.changepassword.newpassword.confirm.inputname=confirmpassword
+bharosa.uio.default.changepassword.newpassword.confirm.pad.name = Bharosa_ConfirmPassword_Pad
+bharosa.uio.default.changepassword.newpassword.confirm.pad.textfield = Bharosa_ConfirmPassword_PadDataField
+bharosa.uio.default.changepassword.newpassword.confirm.label=Confirm New Password
+bharosa.uio.default.changepassword.newpassword.confirm.maxlength=18
+
+bharosa.uio.default.changepassword.credentials.enum=Enum for Change Password Credentials
+bharosa.uio.default.changepassword.credentials.enum.password=0
+bharosa.uio.default.changepassword.credentials.enum.password.name=Old Password
+bharosa.uio.default.changepassword.credentials.enum.password.description=Old Password
+bharosa.uio.default.changepassword.credentials.enum.password.inputname=password
+bharosa.uio.default.changepassword.credentials.enum.password.inputtype=password
+bharosa.uio.default.changepassword.credentials.enum.password.useauthenticator=true
+bharosa.uio.default.changepassword.credentials.enum.password.pad.name=Bharosa_OldPassword_Pad
+bharosa.uio.default.changepassword.credentials.enum.password.pad.textfield=Bharosa_OldPassword_PadDataField
+bharosa.uio.default.changepassword.credentials.enum.password.maxlength=18
+bharosa.uio.default.changepassword.credentials.enum.password.order=1
+bharosa.uio.default.changepassword.credentials.enum.password.enabled=true
+
+bharosa.uio.default.changeusername.newusername.inputname=newusername
+
+bharosa.uio.default.forgotpassword.credentialspage.enabled=false
+
+bharosa.uio.default.forgotpassword.primary.useauthenticator= true
+bharosa.uio.default.forgotpassword.primary.pad.name = Bharosa_ForgotPassword_Pad
+bharosa.uio.default.forgotpassword.primary.auth.device = DevicePinPad
+bharosa.uio.default.forgotpassword.primary.auth.device.frame =
+bharosa.uio.default.forgotpassword.primary.inputname = atmpin
+
+bharosa.uio.default.forgotpassword.primary.credentials.enum=Enum for Forgot Password Credentials
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber=0
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber.name=Card Number
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber.description=Card Number
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber.inputname=atmcard
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber.inputtype=text
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber.maxlength=19
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber.order=1
+bharosa.uio.default.forgotpassword.primary.credentials.enum.cardnumber.enabled=true
+
+
+bharosa.uio.default.resetpassword.action=resetPassword.do
+bharosa.uio.default.resetpassword.cancel.action=logout.do
+bharosa.uio.default.resetpassword.newpassword.inputname=newpassword
+bharosa.uio.default.resetpassword.newpassword.pad.name = Bharosa_NewPassword_Pad
+bharosa.uio.default.resetpassword.newpassword.pad.textfield = Bharosa_NewPassword_PadDataField
+bharosa.uio.default.resetpassword.newpassword.label=New Password
+bharosa.uio.default.resetpassword.newpassword.maxlength=18
+
+bharosa.uio.default.resetpassword.newpassword.confirm.inputname=confirmpassword
+bharosa.uio.default.resetpassword.newpassword.confirm.pad.name = Bharosa_ConfirmPassword_Pad
+bharosa.uio.default.resetpassword.newpassword.confirm.pad.textfield = Bharosa_ConfirmPassword_PadDataField
+bharosa.uio.default.resetpassword.newpassword.confirm.label=Confirm New Password
+bharosa.uio.default.resetpassword.newpassword.confirm.maxlength=18
+
+bharosa.uio.default.resetpassword.credentials.enum=Enum for Reset Password Credentials
+bharosa.uio.default.resetpassword.credentials.enum.password=0
+bharosa.uio.default.resetpassword.credentials.enum.password.name=Old Password
+bharosa.uio.default.resetpassword.credentials.enum.password.description=Old Password
+bharosa.uio.default.resetpassword.credentials.enum.password.inputname=password
+bharosa.uio.default.resetpassword.credentials.enum.password.inputtype=password
+bharosa.uio.default.resetpassword.credentials.enum.password.useauthenticator=true
+bharosa.uio.default.resetpassword.credentials.enum.password.pad.name=Bharosa_OldPassword_Pad
+bharosa.uio.default.resetpassword.credentials.enum.password.pad.textfield=Bharosa_OldPassword_PadDataField
+bharosa.uio.default.resetpassword.credentials.enum.password.maxlength=18
+bharosa.uio.default.resetpassword.credentials.enum.password.order=1
+bharosa.uio.default.resetpassword.credentials.enum.password.enabled=false
+
+bharosa.uio.default.expiredpassword.action=expiredPassword.do
+bharosa.uio.default.expiredpassword.cancel.action=logout.do
+bharosa.uio.default.expiredpassword.cancel.enabled=false
+bharosa.uio.default.expiredpassword.newpassword.inputname=newpassword
+bharosa.uio.default.expiredpassword.newpassword.pad.name = Bharosa_NewPassword_Pad
+bharosa.uio.default.expiredpassword.newpassword.pad.textfield = Bharosa_NewPassword_PadDataField
+bharosa.uio.default.expiredpassword.newpassword.label=New Password
+bharosa.uio.default.expiredpassword.newpassword.maxlength=18
+
+bharosa.uio.default.expiredpassword.newpassword.confirm.inputname=confirmpassword
+bharosa.uio.default.expiredpassword.newpassword.confirm.pad.name = Bharosa_ConfirmPassword_Pad
+bharosa.uio.default.expiredpassword.newpassword.confirm.pad.textfield = Bharosa_ConfirmPassword_PadDataField
+bharosa.uio.default.expiredpassword.newpassword.confirm.label=Confirm New Password
+bharosa.uio.default.expiredpassword.newpassword.confirm.maxlength=18
+
+bharosa.uio.default.expiredpassword.credentials.enum=Enum for Reset Password Credentials
+bharosa.uio.default.expiredpassword.credentials.enum.password=0
+bharosa.uio.default.expiredpassword.credentials.enum.password.name=Old Password
+bharosa.uio.default.expiredpassword.credentials.enum.password.description=Old Password
+bharosa.uio.default.expiredpassword.credentials.enum.password.inputname=password
+bharosa.uio.default.expiredpassword.credentials.enum.password.inputtype=password
+bharosa.uio.default.expiredpassword.credentials.enum.password.useauthenticator=true
+bharosa.uio.default.expiredpassword.credentials.enum.password.pad.name=Bharosa_OldPassword_Pad
+bharosa.uio.default.expiredpassword.credentials.enum.password.pad.textfield=Bharosa_OldPassword_PadDataField
+bharosa.uio.default.expiredpassword.credentials.enum.password.maxlength=18
+bharosa.uio.default.expiredpassword.credentials.enum.password.order=1
+bharosa.uio.default.expiredpassword.credentials.enum.password.enabled=true
+
+
+bharosa.uio.default.userinput.getpassword.pad.name = Bharosa_UserInput_Pad
+bharosa.uio.default.userinput.getpassword.pad.label = Password:
+bharosa.uio.default.userinput.getpassword.auth.device = DeviceTextPad
+bharosa.uio.default.userinput.getpassword.auth.device.frame =
+bharosa.uio.default.userinput.getpassword.inputname = BH_UserInput
+bharosa.uio.default.userinput.getpassword.input.description = password
+
+bharosa.uio.default.userinput.getpassword.credentials.enum=Enum for User Input Get Password Credentials
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber=0
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber.name=Card Number
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber.description=Card Number
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber.inputname=atmcard
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber.inputtype=text
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber.maxlength=18
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber.order=1
+bharosa.uio.default.userinput.getpassword.credentials.enum.cardnumber.enabled=true
+
+bharosa.uio.default.trx.type.httpheader=BH_Trx_Type
+bharosa.uio.default.trx.param.httpheader.prefix=BH_Trx_Param_
+bharosa.uio.default.trx.return.httpheader=BH_Trx_Rules-Result
+
+bharosa.uio.default.preauth.ruleActionList.header.enable=false
+bharosa.uio.default.postauth.ruleActionList.header.enable=false
+bharosa.uio.default.ruleActionList.header.delim=,
+
+#Copied from legacy bharosauio_msg.properties
+bharosa.uio.default.signon.page.title=Sign In:
+bharosa.uio.default.signon.page.message=Please enter your username.
+
+bharosa.uio.default.signon.message.enum=Enum for Sign On Page messages
+
+bharosa.uio.default.signon.message.enum.welcome=1
+bharosa.uio.default.signon.message.enum.welcome.name=Welcome
+bharosa.uio.default.signon.message.enum.welcome.description=Welcome Message
+bharosa.uio.default.signon.message.enum.welcome.title=Welcome
+bharosa.uio.default.signon.message.enum.welcome.msg=Welcome to your secure online application.
+bharosa.uio.default.signon.message.enum.welcome.class=
+bharosa.uio.default.signon.message.enum.welcome.order=1
+bharosa.uio.default.signon.message.enum.welcome.enabled=false
+
+
+bharosa.uio.default.login.fail.page.title=
+bharosa.uio.default.login.fail.message=
+
+bharosa.uio.default.jump.page.message=Logging in. Please wait...
+bharosa.uio.default.jump.page.advance.message=(If you are not logged in within ten seconds please <a href="javascript:advancePage();">click here</a> to proceed.)
+
+bharosa.uio.default.offline.page.title=Temporarily Offline:
+bharosa.uio.default.offline.page.message=This site is temporarily out of service. Please try back in a while.
+
+bharosa.uio.default.password.page.title=Sign In:
+bharosa.uio.default.password.page.welcome.enabled=false
+bharosa.uio.default.password.page.welcome.message=Welcome, {0} (Not you? <a href='logout.do'>Sign on again</a>)
+bharosa.uio.default.password.page.message=Please use this security device to enter your password.
+bharosa.uio.default.password.page.DeviceHTMLControl.message=Please enter your password.
+bharosa.uio.default.password.page.DeviceKeyPadFull.message=Please use this secure KeyPad to enter your password.
+bharosa.uio.default.password.page.DeviceKeyPadAlpha.message=Please use this secure KeyPad to enter your password.
+bharosa.uio.default.password.page.DeviceTextPad.message=Please use this secure TextPad to enter your password.
+bharosa.uio.default.password.page.DevicePinPad.message=Please use this secure PinPad to enter your pin.
+
+bharosa.uio.default.password.continue.enabled=false
+bharosa.uio.default.password.continue.message=
+bharosa.uio.default.password.continue.button=Continue
+
+bharosa.uio.default.forgotpassword.primary.page.title=Forgot Password:
+bharosa.uio.default.forgotpassword.primary.page.message=First, enter your ATM or Check Card Number. Then, enter your PIN code using your mouse to click the buttons on the PinPad. When you are finished, click the enter button on the PinPad.
+
+bharosa.uio.default.forgotpassword.primary.continue.enabled=false
+bharosa.uio.default.forgotpassword.primary.continue.message=
+bharosa.uio.default.forgotpassword.primary.continue.button=Continue
+
+bharosa.uio.default.userinput.getpassword.page.title=Enter Password:
+bharosa.uio.default.userinput.getpassword.page.message=Enter your password using the security device below.
+
+bharosa.uio.default.userinput.getpassword.continue.enabled=false
+bharosa.uio.default.userinput.getpassword.continue.message=
+bharosa.uio.default.userinput.getpassword.continue.button=Continue
+
+bharosa.uio.default.register.info.title=Your New Security Profile
+bharosa.uio.default.register.info.message=Setting up your new security profile enhances your online protection.<br>It adds new layers of security to your account by helping us identify you - and will help you identify our site.
+
+bharosa.uio.default.register.info.section1.DeviceHTMLControl.image=images/UIO_HTML_sample.jpg
+bharosa.uio.default.register.info.section1.DeviceKeyPadFull.image=images/UIO_KP_sample.jpg
+bharosa.uio.default.register.info.section1.DeviceKeyPadAlpha.image=images/UIO_AKP_sample.jpg
+bharosa.uio.default.register.info.section1.DeviceTextPad.image=images/UIO_TP_sample.jpg
+bharosa.uio.default.register.info.section1.DevicePinPad.image=images/UIO_PP_sample.jpg
+bharosa.uio.default.register.info.section1.title=Security Image and Phrase
+bharosa.uio.default.register.info.section1.subtitle=Enhanced data security
+bharosa.uio.default.register.info.section1.message=Your new personalized security devices will help protect you while banking online. Information you enter is protected from many of the security threats out there today. At the same time the image, phrase and date are proof that you are on our official site.
+bharosa.uio.default.register.info.section1.action=RegisterPreferences
+bharosa.uio.default.register.info.section1.enabled=true
+
+bharosa.uio.default.register.info.section2.DeviceHTMLControl.image=images/UIO_HTML_sample.jpg
+bharosa.uio.default.register.info.section2.DeviceKeyPadFull.image=images/KP_reg_withP.jpg
+bharosa.uio.default.register.info.section2.DeviceKeyPadAlpha.image=images/KP_reg_withP.jpg
+bharosa.uio.default.register.info.section2.DeviceTextPad.image=images/KP_reg_withP.jpg
+bharosa.uio.default.register.info.section2.DevicePinPad.image=images/TP_reg_ques_withP.jpg
+bharosa.uio.default.register.info.section2.DeviceQuestionPad.image=images/UIO_QP_sample.jpg
+bharosa.uio.default.register.info.section2.title=Security Questions and Answers
+bharosa.uio.default.register.info.section2.subtitle=Additional layer of security
+bharosa.uio.default.register.info.section2.message=You will register three security questions to add another layer of security. In the future we will ask you one of these questions using your personalized device if a situation seems risky. These questions and answers should be kept secret just like your password.
+bharosa.uio.default.register.info.section2.action=RegisterChallengeQuestions
+bharosa.uio.default.register.info.section2.enabled=true
+
+bharosa.uio.default.register.info.section3.DeviceHTMLControl.image=images/s.gif
+bharosa.uio.default.register.info.section3.DeviceKeyPadFull.image=images/s.gif
+bharosa.uio.default.register.info.section3.DeviceKeyPadAlpha.image=images/s.gif
+bharosa.uio.default.register.info.section3.DeviceTextPad.image=images/s.gif
+bharosa.uio.default.register.info.section3.DevicePinPad.image=images/s.gif
+bharosa.uio.default.register.info.section3.DeviceQuestionPad.image=images/s.gif
+bharosa.uio.default.register.info.section3.title=Contact Information
+bharosa.uio.default.register.info.section3.subtitle=One time password (OTP)
+bharosa.uio.default.register.info.section3.message=You will register contact information to allow for the delivery of a one time use password.
+bharosa.uio.default.register.info.section3.action=RegisterUserInfo
+bharosa.uio.default.register.info.section3.enabled=true
+
+
+bharosa.uio.default.register.info.skip.enabled=true
+bharosa.uio.default.register.info.skip.message=To skip registration at this time click >>
+bharosa.uio.default.register.info.skip.button=Skip
+bharosa.uio.default.register.info.continue.enabled=true
+bharosa.uio.default.register.info.continue.message=To register your security profile now >>
+bharosa.uio.default.register.info.continue.button=Continue
+
+bharosa.uio.default.register.authenticator.title=Your Security Device
+bharosa.uio.default.register.authenticator.message=This is your personalized virtual authentication device.<br>From now on, never enter your password unless you see this exact device.
+bharosa.uio.default.register.authenticator.learnmore.message={0} about your device
+bharosa.uio.default.register.authenticator.learnmore.link.text=Learn more
+bharosa.uio.default.register.authenticator.changeimage.message=Get a new {0}
+bharosa.uio.default.register.authenticator.changeimage.link.text=image and phrase
+bharosa.uio.default.register.authenticator.upgrade.message={0} to a higher security device
+bharosa.uio.default.register.authenticator.upgrade.link.text=Upgrade
+bharosa.uio.default.register.authenticator.downgrade.message={0} to the default security device
+bharosa.uio.default.register.authenticator.downgrade.link.text=Revert
+bharosa.uio.default.register.authenticator.continue.enabled=true
+bharosa.uio.default.register.authenticator.continue.message=To accept this security device, image and phrase click >>
+bharosa.uio.default.register.authenticator.continue.button=Continue
+
+bharosa.uio.default.register.questions.title = Security Questions
+bharosa.uio.default.register.questions.message = We will use your security questions and answers to confirm your identity at times when extra safety is needed.
+bharosa.uio.default.register.questions.continue.enabled=false
+bharosa.uio.default.register.questions.continue.message =
+bharosa.uio.default.register.questions.continue.button = Continue
+
+bharosa.uio.default.register.qaexists.title = Security questions already exist
+bharosa.uio.default.register.qaexists.message = Sorry, you cannot add security questions since you already have your security questions.
+bharosa.uio.default.register.qaexists.continue.message =
+bharosa.uio.default.register.qaexists.continue.button = Continue
+
+bharosa.uio.default.ChallengeQuestion.title =
+bharosa.uio.default.ChallengeQuestion.question.message = For your safety, please answer the following security question.
+bharosa.uio.default.ChallengeQuestion.registerdevice.message =Check to register the computer / device that you are currently using as a safe device:
+bharosa.uio.default.ChallengeQuestion.continue.enabled=false
+bharosa.uio.default.ChallengeQuestion.continue.message =
+bharosa.uio.default.ChallengeQuestion.continue.button = Continue
+bharosa.uio.default.ChallengeQuestion.incorrect.message = Incorrect answer. Please try again.
+
+bharosa.uio.default.ChallengeSMS.title =
+bharosa.uio.default.ChallengeSMS.message = For your safety, please enter the code sent to you by SMS.
+bharosa.uio.default.ChallengeSMS.registerdevice.message =Check to register the computer / device that you are currently using as a safe device:
+bharosa.uio.default.ChallengeSMS.continue.message =
+bharosa.uio.default.ChallengeSMS.continue.button = Continue
+bharosa.uio.default.ChallengeSMS.incorrect.message = Incorrect pin. Please try again.
+bharosa.uio.default.ChallengeSMS.continue.enabled = false
+
+bharosa.uio.default.ChallengeSMS.message.enabled = true
+bharosa.uio.default.ChallengeSMS.message.subject = Oracle OTP Code
+bharosa.uio.default.ChallengeSMS.message.body = Your Oracle SMS OTP Code is: {0}
+
+
+bharosa.uio.default.ChallengeEmail.title =
+bharosa.uio.default.ChallengeEmail.message = For your safety, please enter the code sent to you in email.
+bharosa.uio.default.ChallengeEmail.registerdevice.message =Check to register the computer / device that you are currently using as a safe device:
+bharosa.uio.default.ChallengeEmail.continue.message =
+bharosa.uio.default.ChallengeEmail.continue.button = Continue
+bharosa.uio.default.ChallengeEmail.continue.enabled = false
+bharosa.uio.default.ChallengeEmail.incorrect.message = Incorrect pin. Please try again.
+
+bharosa.uio.default.ChallengeEmail.message.enabled = true
+bharosa.uio.default.ChallengeEmail.message.from.name = Oracle ASA Test
+bharosa.uio.default.ChallengeEmail.message.subject = Oracle OTP Code
+bharosa.uio.default.ChallengeEmail.message.body = Your Oracle Email OTP Code is: {0}
+bharosa.uio.default.ChallengeEmail.message.from.address = OracleASA@example.com
+
+bharosa.uio.default.userpreferences.title=User Preferences
+bharosa.uio.default.userpreferences.message=This is your personalized virtual authentication device.<br>Use the links below to get a new image and phrase or change your security device.
+bharosa.uio.default.userpreferences.learnmore.message={0} about your device
+bharosa.uio.default.userpreferences.learnmore.link.text=Learn more
+bharosa.uio.default.userpreferences.changeimage.message=Get a new {0}
+bharosa.uio.default.userpreferences.changeimage.link.text=image and phrase
+bharosa.uio.default.userpreferences.upgrade.message={0} to a higher security device
+bharosa.uio.default.userpreferences.upgrade.link.text=Upgrade
+bharosa.uio.default.userpreferences.downgrade.message={0} to the default security device
+bharosa.uio.default.userpreferences.downgrade.link.text=Revert
+bharosa.uio.default.userpreferences.resetquestions.message=Reset your {0}
+bharosa.uio.default.userpreferences.resetquestions.link.text=challenge questions
+bharosa.uio.default.userpreferences.changepassword.message=Change your {0}
+bharosa.uio.default.userpreferences.changepassword.link.text=password
+
+bharosa.uio.default.userpreferences.continue.message=If you are finished with user preferences click >>
+bharosa.uio.default.userpreferences.continue.button=Continue
+
+bharosa.uio.default.userpreferences.questions.title = Security Questions
+bharosa.uio.default.userpreferences.questions.message = We will use your security questions and answers to confirm your identity at times when extra safety is needed.
+bharosa.uio.default.userpreferences.questions.continue.enabled=false
+bharosa.uio.default.userpreferences.questions.continue.message =
+bharosa.uio.default.userpreferences.questions.continue.button = Continue
+
+bharosa.uio.default.changepassword.title = Change Your Password
+bharosa.uio.default.changepassword.page.message =
+bharosa.uio.default.changepassowrd.continue.message =
+bharosa.uio.default.changepassword.continue.button = Continue
+
+bharosa.uio.default.changepassword.cancel.enabled=true
+bharosa.uio.default.changepassword.cancel.message=To cancel changing your password click >>
+bharosa.uio.default.changepassword.cancel.button=Cancel
+
+bharosa.uio.default.resetpassword.title = Reset Your Password
+bharosa.uio.default.resetpassword.page.message = Please enter your new password twice.
+bharosa.uio.default.resetpassword.page.DeviceTextPad.message = Please enter your new password twice on the TextPad.
+bharosa.uio.default.resetpassword.page.DeviceKeyPad.message = Please enter your new password twice on the KeyPad using your mouse to click the buttons. When you are finished click the enter button on the KeyPad.
+bharosa.uio.default.resetpassword.continue.enabled=false
+bharosa.uio.default.resetpassowrd.continue.message =
+bharosa.uio.default.resetpassword.continue.button = Continue
+
+bharosa.uio.default.resetpassword.cancel.enabled=true
+bharosa.uio.default.resetpassword.cancel.message=To cancel changing your password click >>
+bharosa.uio.default.resetpassword.cancel.button=Cancel
+
+bharosa.uio.default.registrationrequired.title=User Preferences
+bharosa.uio.default.registrationrequired.message=You must complete registration to access this page.
+bharosa.uio.default.registrationrequired.continue.enabled=true
+bharosa.uio.default.registrationrequired.continue.message=
+bharosa.uio.default.registrationrequired.continue.button=Continue
+
+###### error messages for login page.
+bharosa.uio.default.login.empty.username = You must enter {0}.
+bharosa.uio.default.login.invalid.user = Sorry, the identification you entered was not recognized. Please try again.
+  # We do not recognize your {0} and/or password.&#160;&#160;Please try again.
+bharosa.uio.default.login.invalid.username = You have entered an invalid {0}. &#160;&#160;Please re-enter your {0}.
+
+bharosa.uio.default.login.technical.error = There was some technical error processing your request. &#160;&#160;Please try again.
+bharosa.uio.default.login.session.expired = Your session has expired. &#160;&#160;Please try again.
+bharosa.uio.default.login.user.blocked = You are not authorized to login. &#160;&#160;Please contact customer service.
+bharosa.uio.default.login.cookie.not.enabled = For enhanced security please enable cookies, &#160;&#160;then refresh your browser and try again.
+bharosa.uio.default.login.wrong.answer.msg = You have entered an incorrect answer.
+bharosa.uio.default.login.disabled.msg = User is disabled. &#160;&#160;Please contact customer service.
+
+bharosa.uio.default.cookie.not.enabled = For enhanced security please enable cookies, &#160;&#160;then refresh your browser and try again.
+bharosa.uio.default.login.invalid.user.generic.msg = Access denied. Please try again.
+bharosa.uio.default.empty.questions.registered.msg = Sorry, there are no security questions available.
+
+#Enum for question validation
+bharosa.uio.default.question.error.enum=Enum for Question Validation
+
+bharosa.uio.default.question.error.enum.empty_answer = 1
+bharosa.uio.default.question.error.enum.empty_answer.name = empty_answer
+bharosa.uio.default.question.error.enum.empty_answer.msg = You must enter your answer.
+
+bharosa.uio.default.question.error.enum.duplicate_question = 2
+bharosa.uio.default.question.error.enum.duplicate_question.name = duplicate_question
+bharosa.uio.default.question.error.enum.duplicate_question.msg = You can't select same question again.
+
+bharosa.uio.default.question.error.enum.empty_question = 3
+bharosa.uio.default.question.error.enum.empty_question.name = empty_question
+bharosa.uio.default.question.error.enum.empty_question.msg = You must select your question.
+
+bharosa.uio.default.question.error.enum.general_error = 4
+bharosa.uio.default.question.error.enum.general_error.name = general_error
+bharosa.uio.default.question.error.enum.general_error.msg = There has been an error registering your questions, please try again.  If the problem persists, please contact customer service.
+
+bharosa.uio.default.question.error.enum.invalid_answer_length = 5
+bharosa.uio.default.question.error.enum.invalid_answer_length.name = invalid_answer_length
+bharosa.uio.default.question.error.enum.invalid_answer_length.msg = At least one of your answers was of invalid length.
+
+###Enum for challenge question/answer validation
+bharosa.uio.default.ChallengeQuestion.error.enum=Enum for Challenge Question Validation
+
+bharosa.uio.default.ChallengeQuestion.error.enum.invalid_answer = 1
+bharosa.uio.default.ChallengeQuestion.error.enum.invalid_answer.name = invalid_answer
+bharosa.uio.default.ChallengeQuestion.error.enum.invalid_answer.msg = You have entered incorrect answer, Try Again!
+
+###Enum for SMS challenge answer validation
+bharosa.uio.default.ChallengeSMS.error.enum=Enum for SMS Challenge Validation
+
+bharosa.uio.default.ChallengeSMS.error.enum.invalid_answer = 1
+bharosa.uio.default.ChallengeSMS.error.enum.invalid_answer.name = invalid_answer
+bharosa.uio.default.ChallengeSMS.error.enum.invalid_answer.msg = You have entered incorrect code, please try again!
+
+###Enum for email challenge answer validation
+bharosa.uio.default.ChallengeEmail.error.enum=Enum for Email Challenge Validation
+
+bharosa.uio.default.ChallengeEmail.error.enum.invalid_answer = 1
+bharosa.uio.default.ChallengeEmail.error.enum.invalid_answer.name = invalid_answer
+bharosa.uio.default.ChallengeEmail.error.enum.invalid_answer.msg = You have entered incorrect code, please check your email and try again!
+
+
+bharosa.uio.default.changeusername.error.enum=Enum for Change Username Validation
+bharosa.uio.default.changeusername.error.enum.username_missing=1
+bharosa.uio.default.changeusername.error.enum.username_missing.name=username_missing
+bharosa.uio.default.changeusername.error.enum.username_missing.msg=New username information missing, please ensure all fields are entered.
+
+bharosa.uio.default.changeusername.error.enum.general_error=2
+bharosa.uio.default.changeusername.error.enum.general_error.name=general_error
+bharosa.uio.default.changeusername.error.enum.general_error.msg=Username not updated due to technical error, please try again.
+
+bharosa.uio.default.changepassword.error.enum=Enum for Change Password Validation
+bharosa.uio.default.changepassword.error.enum.password_mismatch=1
+bharosa.uio.default.changepassword.error.enum.password_mismatch.name=password_mismatch
+bharosa.uio.default.changepassword.error.enum.password_mismatch.msg=New passwords entered do not match.
+
+bharosa.uio.default.changepassword.error.enum.password_missing=2
+bharosa.uio.default.changepassword.error.enum.password_missing.name=password_missing
+bharosa.uio.default.changepassword.error.enum.password_missing.msg=New password information missing, please ensure all fields are entered.
+
+bharosa.uio.default.changepassword.error.enum.credentials_incorrect=3
+bharosa.uio.default.changepassword.error.enum.credentials_incorrect.name=credentials incorrect
+bharosa.uio.default.changepassword.error.enum.credentials_incorrect.msg=Sorry, the old password you entered was incorrect. Please try again.
+
+bharosa.uio.default.changepassword.error.enum.password_format=4
+bharosa.uio.default.changepassword.error.enum.password_format.name=password format
+bharosa.uio.default.changepassword.error.enum.password_format.msg=Your new password must be at least 4 characters.
+
+bharosa.uio.default.changepassword.error.enum.general_error=5
+bharosa.uio.default.changepassword.error.enum.general_error.name=general error
+bharosa.uio.default.changepassword.error.enum.general_error.msg=An error occurred while attempting to change your password. Please try again.
+
+bharosa.uio.default.resetpassword.error.enum=Enum for Reset Password Validation
+bharosa.uio.default.resetpassword.error.enum.password_mismatch=1
+bharosa.uio.default.resetpassword.error.enum.password_mismatch.name=password_mismatch
+bharosa.uio.default.resetpassword.error.enum.password_mismatch.msg=New passwords entered do not match.
+
+bharosa.uio.default.resetpassword.error.enum.password_missing=2
+bharosa.uio.default.resetpassword.error.enum.password_missing.name=password_missing
+bharosa.uio.default.resetpassword.error.enum.password_missing.msg=New password information missing, please ensure all fields are entered.
+
+bharosa.uio.default.resetpassword.error.enum.credentials_incorrect=3
+bharosa.uio.default.resetpassword.error.enum.credentials_incorrect.name=credentials incorrect
+bharosa.uio.default.resetpassword.error.enum.credentials_incorrect.msg=Sorry, the old password you entered was incorrect. Please try again.
+
+bharosa.uio.default.resetpassword.error.enum.password_format=4
+bharosa.uio.default.resetpassword.error.enum.password_format.name=password format
+bharosa.uio.default.resetpassword.error.enum.password_format.msg=Your new password must be at least 4 characters.
+
+bharosa.uio.default.resetpassword.error.enum.general_error=5
+bharosa.uio.default.resetpassword.error.enum.general_error.name=general error
+bharosa.uio.default.resetpassword.error.enum.general_error.msg=An error occurred while attempting to change your password. Please try again.
+
+bharosa.uio.default.forgotpassword.error.enum=Enum for Forgot Password Validation
+bharosa.uio.default.forgotpassword.error.enum.credentials_missing=1
+bharosa.uio.default.forgotpassword.error.enum.credentials_missing.name=credentials missing
+bharosa.uio.default.forgotpassword.error.enum.credentials_missing.msg=Credential information missing, please ensure all fields are entered.
+
+bharosa.uio.default.forgotpassword.error.enum.credentials_incorrect=2
+bharosa.uio.default.forgotpassword.error.enum.credentials_incorrect.name=credentials incorrect
+bharosa.uio.default.forgotpassword.error.enum.credentials_incorrect.msg=The credentials you entered were incorrect. Please try again.
+
+bharosa.uio.default.userinput.error.enum=Enum for User Input Validation
+bharosa.uio.default.userinput.error.enum.credentials_missing=1
+bharosa.uio.default.userinput.error.enum.credentials_missing.name=credentials missing
+bharosa.uio.default.userinput.error.enum.credentials_missing.msg=Credential information missing, please ensure all fields are entered.
+
+bharosa.uio.default.userinput.error.enum.credentials_incorrect=2
+bharosa.uio.default.userinput.error.enum.credentials_incorrect.name=credentials incorrect
+bharosa.uio.default.userinput.error.enum.credentials_incorrect.msg=The credentials you entered were incorrect. Please try again.
+
+bharosa.uio.default.signon.links.enum=Enum for Sign On Page links
+
+bharosa.uio.default.signon.links.enum.wherepassword=1
+bharosa.uio.default.signon.links.enum.wherepassword.name=WherePassword
+bharosa.uio.default.signon.links.enum.wherepassword.description=Where do I enter my password?
+bharosa.uio.default.signon.links.enum.wherepassword.url=javascript:infoWindow('wherepassword');
+bharosa.uio.default.signon.links.enum.wherepassword.personalization=false
+bharosa.uio.default.signon.links.enum.wherepassword.order=1
+bharosa.uio.default.signon.links.enum.wherepassword.enabled=true
+
+bharosa.uio.default.signon.links.enum.forgotusername=2
+bharosa.uio.default.signon.links.enum.forgotusername.name=ForgotUsername
+bharosa.uio.default.signon.links.enum.forgotusername.description=Forgot your username?
+bharosa.uio.default.signon.links.enum.forgotusername.url=#
+bharosa.uio.default.signon.links.enum.forgotusername.personalization=false
+bharosa.uio.default.signon.links.enum.forgotusername.order=2
+bharosa.uio.default.signon.links.enum.forgotusername.enabled=false
+
+bharosa.uio.default.signon.links.enum.selfregistration=3
+bharosa.uio.default.signon.links.enum.selfregistration.name=SelfRegistration
+bharosa.uio.default.signon.links.enum.selfregistration.description=Register
+bharosa.uio.default.signon.links.enum.selfregistration.url=#
+bharosa.uio.default.signon.links.enum.selfregistration.personalization=false
+bharosa.uio.default.signon.links.enum.selfregistration.order=3
+bharosa.uio.default.signon.links.enum.selfregistration.enabled=false
+
+bharosa.uio.default.signon.links.enum.trackregistration=4
+bharosa.uio.default.signon.links.enum.trackregistration.name=TrackRegistration
+bharosa.uio.default.signon.links.enum.trackregistration.description=Track Registration
+bharosa.uio.default.signon.links.enum.trackregistration.url=#
+bharosa.uio.default.signon.links.enum.trackregistration.personalization=false
+bharosa.uio.default.signon.links.enum.trackregistration.order=4
+bharosa.uio.default.signon.links.enum.trackregistration.enabled=false
+
+bharosa.uio.default.password.links.enum=Enum for Password Page links
+
+bharosa.uio.default.password.links.enum.whatthis=1
+bharosa.uio.default.password.links.enum.whatthis.name=WhatThis
+bharosa.uio.default.password.links.enum.whatthis.description=What's this?
+bharosa.uio.default.password.links.enum.whatthis.url=javascript:whatsThis();
+bharosa.uio.default.password.links.enum.whatthis.personalization=false
+bharosa.uio.default.password.links.enum.whatthis.order=1
+bharosa.uio.default.password.links.enum.whatthis.enabled=true
+
+bharosa.uio.default.password.links.enum.notimage=2
+bharosa.uio.default.password.links.enum.notimage.name=Not Image and Phrase
+bharosa.uio.default.password.links.enum.notimage.description=Not your image and phrase?
+bharosa.uio.default.password.links.enum.notimage.url=javascript:infoWindow('notimage');
+bharosa.uio.default.password.links.enum.notimage.personalization=true
+bharosa.uio.default.password.links.enum.notimage.order=2
+bharosa.uio.default.password.links.enum.notimage.enabled=true
+
+bharosa.uio.default.password.links.enum.forgotpassword=3
+bharosa.uio.default.password.links.enum.forgotpassword.name=ForgotPassword
+bharosa.uio.default.password.links.enum.forgotpassword.description=Forgot your password?
+bharosa.uio.default.password.links.enum.forgotpassword.url=forgotPassword.do
+bharosa.uio.default.password.links.enum.forgotpassword.personalization=false
+bharosa.uio.default.password.links.enum.forgotpassword.order=3
+bharosa.uio.default.password.links.enum.forgotpassword.enabled=true
+
+bharosa.uio.default.forgotpassword.primary.links.enum = Enum for forgot password page links
+
+bharosa.uio.default.forgotpassword.primary.links.enum.whatthis=1
+bharosa.uio.default.forgotpassword.primary.links.enum.whatthis.name=WhatThis
+bharosa.uio.default.forgotpassword.primary.links.enum.whatthis.description=What's this?
+bharosa.uio.default.forgotpassword.primary.links.enum.whatthis.url=javascript:whatsThis();
+bharosa.uio.default.forgotpassword.primary.links.enum.whatthis.personalization=false
+bharosa.uio.default.forgotpassword.primary.links.enum.whatthis.order=1
+bharosa.uio.default.forgotpassword.primary.links.enum.whatthis.enabled=true
+
+bharosa.uio.default.forgotpassword.primary.links.enum.notimage=2
+bharosa.uio.default.forgotpassword.primary.links.enum.notimage.name=Not Image and Phrase
+bharosa.uio.default.forgotpassword.primary.links.enum.notimage.description=Not your image and phrase?
+bharosa.uio.default.forgotpassword.primary.links.enum.notimage.url=javascript:infoWindow('notimage');
+bharosa.uio.default.forgotpassword.primary.links.enum.notimage.personalization=true
+bharosa.uio.default.forgotpassword.primary.links.enum.notimage.order=2
+bharosa.uio.default.forgotpassword.primary.links.enum.notimage.enabled=true
+
+bharosa.uio.default.forgotpassword.primary.links.enum.secondary=3
+bharosa.uio.default.forgotpassword.primary.links.enum.secondary.name=Secondary Forgot Password
+bharosa.uio.default.forgotpassword.primary.links.enum.secondary.description=Forgot Card Number?
+bharosa.uio.default.forgotpassword.primary.links.enum.secondary.url=forgotPassword.do?pageId=secondary
+bharosa.uio.default.forgotpassword.primary.links.enum.secondary.personalization=false
+bharosa.uio.default.forgotpassword.primary.links.enum.secondary.order=3
+bharosa.uio.default.forgotpassword.primary.links.enum.secondary.enabled=false
+
+
+bharosa.uio.default.userinput.getpassword.links.enum = Enum for getpassword userinpu page links
+
+bharosa.uio.default.userinput.getpassword.links.enum.whatthis=1
+bharosa.uio.default.userinput.getpassword.links.enum.whatthis.name=WhatThis
+bharosa.uio.default.userinput.getpassword.links.enum.whatthis.description=What's this?
+bharosa.uio.default.userinput.getpassword.links.enum.whatthis.url=javascript:whatsThis();
+bharosa.uio.default.userinput.getpassword.links.enum.whatthis.personalization=false
+bharosa.uio.default.userinput.getpassword.links.enum.whatthis.order=1
+bharosa.uio.default.userinput.getpassword.links.enum.whatthis.enabled=true
+
+bharosa.uio.default.userinput.getpassword.links.enum.notimage=2
+bharosa.uio.default.userinput.getpassword.links.enum.notimage.name=Not Image and Phrase
+bharosa.uio.default.userinput.getpassword.links.enum.notimage.description=Not your image and phrase?
+bharosa.uio.default.userinput.getpassword.links.enum.notimage.url=javascript:infoWindow('notimage');
+bharosa.uio.default.userinput.getpassword.links.enum.notimage.personalization=true
+bharosa.uio.default.userinput.getpassword.links.enum.notimage.order=2
+bharosa.uio.default.userinput.getpassword.links.enum.notimage.enabled=true
+
+
+bharosa.uio.default.ChallengeQuestion.links.enum=Enum for Challenge Page links
+
+bharosa.uio.default.ChallengeQuestion.links.enum.notimage=1
+bharosa.uio.default.ChallengeQuestion.links.enum.notimage.name=Not Image and Phrase
+bharosa.uio.default.ChallengeQuestion.links.enum.notimage.description=Not your image and phrase?
+bharosa.uio.default.ChallengeQuestion.links.enum.notimage.url=javascript:infoWindow('notimage');
+bharosa.uio.default.ChallengeQuestion.links.enum.notimage.personalization=false
+bharosa.uio.default.ChallengeQuestion.links.enum.notimage.order=1
+bharosa.uio.default.ChallengeQuestion.links.enum.notimage.enabled=true
+
+bharosa.uio.default.ChallengeQuestion.links.enum.whatthis=2
+bharosa.uio.default.ChallengeQuestion.links.enum.whatthis.name=WhatThis
+bharosa.uio.default.ChallengeQuestion.links.enum.whatthis.description=What's this?
+bharosa.uio.default.ChallengeQuestion.links.enum.whatthis.url=javascript:whatsThis();
+bharosa.uio.default.ChallengeQuestion.links.enum.whatthis.personalization=false
+bharosa.uio.default.ChallengeQuestion.links.enum.whatthis.order=2
+bharosa.uio.default.ChallengeQuestion.links.enum.whatthis.enabled=true
+
+bharosa.uio.default.ChallengeQuestion.links.enum.forgotanswer=3
+bharosa.uio.default.ChallengeQuestion.links.enum.forgotanswer.name=Forgot Answer
+bharosa.uio.default.ChallengeQuestion.links.enum.forgotanswer.description=Forgot Answer?
+bharosa.uio.default.ChallengeQuestion.links.enum.forgotanswer.url=javascript:infoWindow('forgotanswer');
+bharosa.uio.default.ChallengeQuestion.links.enum.forgotanswer.personalization=false
+bharosa.uio.default.ChallengeQuestion.links.enum.forgotanswer.order=3
+bharosa.uio.default.ChallengeQuestion.links.enum.forgotanswer.enabled=true
+
+
+bharosa.uio.default.ChallengeEmail.links.enum=Enum for Email Challenge Page links
+
+bharosa.uio.default.ChallengeEmail.links.enum.notimage=1
+bharosa.uio.default.ChallengeEmail.links.enum.notimage.name=Not Image and Phrase
+bharosa.uio.default.ChallengeEmail.links.enum.notimage.description=Not your image and phrase?
+bharosa.uio.default.ChallengeEmail.links.enum.notimage.url=javascript:infoWindow('notimage');
+bharosa.uio.default.ChallengeEmail.links.enum.notimage.personalization=false
+bharosa.uio.default.ChallengeEmail.links.enum.notimage.order=1
+bharosa.uio.default.ChallengeEmail.links.enum.notimage.enabled=true
+
+bharosa.uio.default.ChallengeEmail.links.enum.whatthis=2
+bharosa.uio.default.ChallengeEmail.links.enum.whatthis.name=WhatThis
+bharosa.uio.default.ChallengeEmail.links.enum.whatthis.description=What's this?
+bharosa.uio.default.ChallengeEmail.links.enum.whatthis.url=javascript:whatsThis();
+bharosa.uio.default.ChallengeEmail.links.enum.whatthis.personalization=false
+bharosa.uio.default.ChallengeEmail.links.enum.whatthis.order=2
+bharosa.uio.default.ChallengeEmail.links.enum.whatthis.enabled=true
+
+bharosa.uio.default.ChallengeEmail.links.enum.resend=3
+bharosa.uio.default.ChallengeEmail.links.enum.resend.name=Resend Email
+bharosa.uio.default.ChallengeEmail.links.enum.resend.description=Did not receive pin?
+bharosa.uio.default.ChallengeEmail.links.enum.resend.url=challengeUser.do?showView=resend
+bharosa.uio.default.ChallengeEmail.links.enum.resend.personalization=false
+bharosa.uio.default.ChallengeEmail.links.enum.resend.order=3
+bharosa.uio.default.ChallengeEmail.links.enum.resend.enabled=true
+
+
+bharosa.uio.default.ChallengeSMS.links.enum=Enum for SMS Challenge Page links
+
+bharosa.uio.default.ChallengeSMS.links.enum.notimage=1
+bharosa.uio.default.ChallengeSMS.links.enum.notimage.name=Not Image and Phrase
+bharosa.uio.default.ChallengeSMS.links.enum.notimage.description=Not your image and phrase?
+bharosa.uio.default.ChallengeSMS.links.enum.notimage.url=javascript:infoWindow('notimage');
+bharosa.uio.default.ChallengeSMS.links.enum.notimage.personalization=false
+bharosa.uio.default.ChallengeSMS.links.enum.notimage.order=1
+bharosa.uio.default.ChallengeSMS.links.enum.notimage.enabled=true
+
+bharosa.uio.default.ChallengeSMS.links.enum.whatthis=2
+bharosa.uio.default.ChallengeSMS.links.enum.whatthis.name=WhatThis
+bharosa.uio.default.ChallengeSMS.links.enum.whatthis.description=What's this?
+bharosa.uio.default.ChallengeSMS.links.enum.whatthis.url=javascript:whatsThis();
+bharosa.uio.default.ChallengeSMS.links.enum.whatthis.personalization=false
+bharosa.uio.default.ChallengeSMS.links.enum.whatthis.order=2
+bharosa.uio.default.ChallengeSMS.links.enum.whatthis.enabled=true
+
+bharosa.uio.default.ChallengeSMS.links.enum.resend=3
+bharosa.uio.default.ChallengeSMS.links.enum.resend.name=Resend SMS
+bharosa.uio.default.ChallengeSMS.links.enum.resend.description=Did not receive pin?
+bharosa.uio.default.ChallengeSMS.links.enum.resend.url=challengeUser.do?showView=resend
+bharosa.uio.default.ChallengeSMS.links.enum.resend.personalization=false
+bharosa.uio.default.ChallengeSMS.links.enum.resend.order=3
+bharosa.uio.default.ChallengeSMS.links.enum.resend.enabled=true
+
+bharosa.uio.default.login.fail.links.enum=Enum for Login Fail links
+
+bharosa.uio.default.login.fail.links.enum.login=1
+bharosa.uio.default.login.fail.links.enum.login.name=Login Again
+bharosa.uio.default.login.fail.links.enum.login.description=Login Again
+bharosa.uio.default.login.fail.links.enum.login.url=loginPage.jsp
+bharosa.uio.default.login.fail.links.enum.login.personalization=false
+bharosa.uio.default.login.fail.links.enum.login.order=1
+bharosa.uio.default.login.fail.links.enum.login.enabled=true
+
+
+bharosa.uio.default.messages.enum=Enum for various messages
+
+bharosa.uio.default.messages.enum.wherepassword=1
+bharosa.uio.default.messages.enum.wherepassword.name=Where do I enter my password?
+bharosa.uio.default.messages.enum.wherepassword.description=We have enhanced our security to better protect you while banking online. From now on you will first enter your username then enter your password on a separate page.
+
+bharosa.uio.default.messages.enum.notimage=2
+bharosa.uio.default.messages.enum.notimage.name=Not your image and phrase?
+bharosa.uio.default.messages.enum.notimage.description=If the device shown to you is not personalized with your image and phrase please make sure you entered your username correctly. If you have entered you username correctly and still do not see your personalized device, please contact customer service. Thank you.
+
+bharosa.uio.default.messages.enum.forgotanswer=3
+bharosa.uio.default.messages.enum.forgotanswer.name=Forgot your answer?
+bharosa.uio.default.messages.enum.forgotanswer.description=If you have forgotten the answers to your challenge questions please contact customer service. Thank you.
+
+
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum=Enum for TextPad bullet points
+
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.one=1
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.one.name=TextPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.one.description=TextPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.one.text=Enter your password using your keyboard, then click enter
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.two=2
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.two.name=TextPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.two.description=TextPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.two.text=It's as easy as that!
+bharosa.uio.default.whatsthis.DeviceTextPad.bullet.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum=Enum for TextPad Image Description
+
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.one=1
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.one.name=TextPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.one.description=TextPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.one.text=Personal Image
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.two=2
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.two.name=TextPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.two.description=TextPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.two.text=Freshness date
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.three=3
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.three.name=TextPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.three.description=TextPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.three.text=Personal phrase
+bharosa.uio.default.whatsthis.DeviceTextPad.image.description.enum.three.order=3
+
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum=Enum for Full KeyPad bullet points
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.one=1
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.one.name=KeyPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.one.description=KeyPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.one.text=Use your mouse to click the buttons on the KeyPad to enter your password, then click enter
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.two=2
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.two.name=KeyPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.two.description=KeyPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.two.text=To enter a capital letter, click the caps button. Click a second time to lock caps; a third time to return to lower case
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.three=3
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.three.name=KeyPad Bullet 3
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.three.description=KeyPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.three.text=If you make a mistake, use the back arrow
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.bullet.enum.three.order=3
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum=Enum for Full KeyPad Image Description
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.one=1
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.one.name=KeyPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.one.description=KeyPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.one.text=Personal Image
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.two=2
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.two.name=KeyPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.two.description=KeyPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.two.text=Freshness date
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.three=3
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.three.name=KeyPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.three.description=KeyPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.three.text=Personal phrase
+bharosa.uio.default.whatsthis.DeviceKeyPadFull.image.description.enum.three.order=3
+
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum=Enum for Alpha KeyPad bullet points
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.one=1
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.one.name=KeyPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.one.description=KeyPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.one.text=Use your mouse to click the buttons on the KeyPad to enter your password, then click enter
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.two=2
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.two.name=KeyPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.two.description=KeyPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.two.text=To enter a capital letter, click the caps button. Click a second time to lock caps; a third time to return to lower case
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.three=3
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.three.name=KeyPad Bullet 3
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.three.description=KeyPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.three.text=If you make a mistake, use the back arrow
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.bullet.enum.three.order=3
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum=Enum for Alpha KeyPad Image Description
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.one=1
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.one.name=KeyPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.one.description=KeyPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.one.text=Personal Image
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.two=2
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.two.name=KeyPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.two.description=KeyPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.two.text=Freshness date
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.three=3
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.three.name=KeyPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.three.description=KeyPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.three.text=Personal phrase
+bharosa.uio.default.whatsthis.DeviceKeyPadAlpha.image.description.enum.three.order=3
+
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum=Enum for PinPad bullet points
+
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.one=1
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.one.name=PinPad Bullet 1
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.one.description=PinPad Bullet 1
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.one.text=Use your mouse to click the buttons on the PinPad to enter your PIN code, then click enter
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.two=2
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.two.name=PinPad Bullet 2
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.two.description=PinPad Bullet 2
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.two.text=If you make a mistake, use the back arrow
+bharosa.uio.default.whatsthis.DevicePinPad.bullet.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum=Enum for PinPad Image Description
+
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.one=1
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.one.name=PinPad Image Description 1
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.one.description=PinPad Image Description 1
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.one.text=Personal Image
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.two=2
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.two.name=PinPad Image Description 2
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.two.description=PinPad Image Description 2
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.two.text=Freshness date
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.three=3
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.three.name=PinPad Image Description 3
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.three.description=PinPad Image Description 3
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.three.text=Personal phrase
+bharosa.uio.default.whatsthis.DevicePinPad.image.description.enum.three.order=3
+
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum=Enum for QuestionPad bullet points
+
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.one=1
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.one.name=QuestionPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.one.description=QuestionPad Bullet 1
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.one.text=Read the question shown in the QuestionPad.
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.two=2
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.two.name=QuestionPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.two.description=QuestionPad Bullet 2
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.two.text=Enter the answer using your keyboard, then click
+bharosa.uio.default.whatsthis.DeviceQuestionPad.bullet.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum=Enum for QuestionPad Image Description
+
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.one=1
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.one.name=QuestionPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.one.description=QuestionPad Image Description 1
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.one.text=Personal Image
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.one.order=1
+
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.two=2
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.two.name=QuestionPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.two.description=QuestionPad Image Description 2
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.two.text=Freshness date
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.two.order=2
+
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.three=3
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.three.name=QuestionPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.three.description=QuestionPad Image Description 3
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.three.text=Personal phrase
+bharosa.uio.default.whatsthis.DeviceQuestionPad.image.description.enum.three.order=3
+
+
+###
+bharosa.password.auth.provider.classname=com.bharosa.uio.manager.auth.DummyAuthManager
+#bharosa.password.auth.provider.classname=com.bharosa.vcrypt.services.LDAPOAAMAuthProvider
+#bharosa.password.auth.provider.classname=com.bharosa.vcrypt.services.OAMOAAMAuthProvider
+
+
+#UIO LDAP properties
+oaam.uio.ldap.userdn.template=uid={USER_ID},cn=not_set,cn=not_set,...
+oaam.uio.ldap.host=NOT_SET
+oaam.uio.ldap.port=389
+oaam.uio.ldap.isSSL=false
+
+#UIO OAM properties
+bharosa.uio.default.is_oam_integrated=false
+oaam.uio.oam.host=NOT_SET
+oaam.uio.oam.port=0000
+oaam.uio.oam.webgate_id=NOT_SET
+oaam.uio.oam.nap_version=3
+oaam.uio.oam.user=NOT_SET
+oaam.uio.oam.password=
+oaam.uio.oam.obsso_cookie_domain=NOT_SET
+oaam.oam.csf.credentials.enabled=true
+oaam.uio.oam.secondary.host=
+oaam.uio.oam.secondary.host.port=
+oaam.uio.oam.java_agent.enabled=false
+oaam.uio.oam.virtual_host_name=IDMDomain
+
+#UIO OIM properties
+oaam.oim.url=
+oaam.oim.csf.credentials.enabled=true
+oaam.oim.auth.login.config=${oracle.oaam.home}/../designconsole/config/authwl.conf
+oaam.oim.xl.homedir=${oracle.oaam.home}/../designconsole
+
+#UIO
+oaam.uio.login.page=/oaamLoginPage.jsp
+oaam.uio.login.internal.page=/oaamLoginPage.jsp
+
+
+
