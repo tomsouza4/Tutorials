@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>OnOAAM Applet Test</title>
+    <style type="text/css">
+      body {
+        background-color: #f8f8f8;
+      }
+      #container { 
+        margin: 0px auto;
+        border-radius: 15px;
+        border: 2px solid #aaa;
+        width: 450px;
+        height: 450px;
+        margin-top: 50px;
+        background-color: white;
+      }
+      #logo {
+        width: 100%;
+        text-align: center;
+        background-color: #aaa;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 2px solid #ddd;
+      }
+      #notification {
+        font-size: smaller;
+        font-family: Sans-serif;
+        border-bottom: 2px solid #ccc;
+        background-color: #eee;
+        padding: 5px;
+        display: none;
+        color: #4f9529;
+      }
+      #appletContainer {
+        height: 350px;
+        text-align: center;
+      }
+      applet {
+       margin: 30% 20%;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function advancePage() {
+        document.getElementById("notification").innerHTML = "advancePage() called!";
+        document.getElementById("notification").style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="logo"><img src="http://www.onoaam.com/wp-content/themes/revolution/images/logo.png"></img></div>
+      <div id="notification"></div>
+      <div id="appletContainer">
+        <applet alt="Java is disabled" name="DeviceIdentificationExtensionApplet" width="225" height="28" code="com.onoaam.did.DeviceIdentificationExtensionApplet" codebase="applet" archive="file:///Users/paul/Documents/Technology/Id3al/GitRepos/Tutorials/ExtendingDeviceIdentification/DeviceIdentificationExtensionApplet/target/OnOAAMDeviceExtensionApplet.jar"></applet>
+      </div>
+    </div>
+  </body>
+<html>

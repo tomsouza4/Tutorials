@@ -1,0 +1,30 @@
+# Building the Applet
+
+To build this project use maven as follows:
+
+    mvn package
+
+# Notes
+
+As part of the package goal maven will attempt to sign the jar using a demo certificate.  This keystore was created using the following commands adapted from this [stack overflow post]("http://stackoverflow.com/questions/2027753/how-to-deploy-applet-with-dependencies-jar-using-maven-and-sign-it").    
+
+## Creating the Keystore
+The keystore can be created using the *src/main/keystore/createKeystore.sh* file.  For this example, the keystore has already been created.
+
+    #!/bin/sh
+    KEYSTORE=.keystore
+    keytool -genkey -alias applet-signing-key -keystore $KEYSTORE -storepass changeit -keypass changeit -dname "CN=OnOAAMDeviceExtensionApplet, OU=OnOAAM, O=OnOAAM.com, L=Minneapolis, ST=Minnesota, C=US"
+    keytool -selfcert -alias applet-signing-key -keystore $KEYSTORE -storepass changeit -keypass changeit
+  
+After the keystore has been created with the certificate, verify it by using the *keytool* command as illustrated below
+
+    $ keytool -list -keystore .keystore 
+    Enter keystore password: changeit
+
+    Keystore type: JKS
+    Keystore provider: SUN
+
+    Your keystore contains 1 entry
+
+    applet-signing-key, Jul 27, 2011, PrivateKeyEntry, 
+    Certificate fingerprint (MD5): 35:9E:3A:25:84:27:65:55:DD:80:31:AE:0F:63:92:44
