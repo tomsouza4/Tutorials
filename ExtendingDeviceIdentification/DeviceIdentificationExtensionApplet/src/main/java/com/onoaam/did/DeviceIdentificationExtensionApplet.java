@@ -53,10 +53,8 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 	private String fpPostUrl = "http://www.onoaam.com/flashFingerprint.do";
 
 	/*
-	 * Initialize the {@code Applet} by collecting all of the information and
-	 * posting it to the server.
-	 * 
-	 * @see java.applet.Applet#init()
+	 * Initialize the Applet by collecting all of the information and posting it
+	 * to the server.
 	 */
 	public void init() {
 		super.init();
@@ -80,7 +78,8 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 		String rotatingCookieValue = getRotatingCookieValue();
 
 		// Construct the final fingerprint with the rotating cookie appended
-		String fpValue = constructFingerprint() + rotatingCookieValue;
+		String fpValue = "client=" + PLUG_IN_NAME + "&fp="
+				+ constructFingerprint() + "v=" + rotatingCookieValue;
 
 		// Post the fingerprint and retrieve the rotating cookie value
 		String newCookieValue = postFingeprintAndRetrieveCookie(fpValue);
@@ -92,80 +91,6 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 		callAdvancePage();
 
 		System.out.println(fpValue);
-	}
-
-	private String postFingeprintAndRetrieveCookie(String fpValue) {
-		String newCookieValue = new String();
-		StringBuffer response = null;
-
-		try {
-			URL serverAddress = new URL(fpPostUrl);
-
-			// Setup the connection
-			httpConnection = (HttpURLConnection) serverAddress.openConnection();
-			httpConnection.setRequestMethod("POST");
-			httpConnection.setReadTimeout(10000); // 10 seconds
-			httpConnection.setUseCaches(false);
-			httpConnection.setDoInput(true);
-			httpConnection.setDoOutput(true);
-
-			// Setup the POST data
-			httpConnection.setRequestProperty("Content-Type",
-					"application/x-www-form-urlencoded");
-			httpConnection.setRequestProperty("Content-Length",
-					"" + Integer.toString(fpValue.getBytes().length));
-			httpConnection.setRequestProperty("Content-Language", "en-US");
-			// TODO: Add the JSESSIONID
-
-			// Send request
-			DataOutputStream writer = new DataOutputStream(
-					httpConnection.getOutputStream());
-			writer.writeBytes(fpValue);
-			writer.flush();
-			writer.close();
-
-			// Get Response
-			InputStream is = httpConnection.getInputStream();
-			BufferedReader reader = new BufferedReader(
-					new InputStreamReader(is));
-			String line;
-			response = new StringBuffer();
-			while ((line = reader.readLine()) != null) {
-				response.append(line);
-				response.append('\r');
-			}
-			reader.close();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (ProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		newCookieValue = response.toString();
-		return newCookieValue;
-	}
-
-	private void callAdvancePage() {
-		try {
-			// Call the OAAM Server's advancePage() JavaScript function
-			getAppletContext()
-					.showDocument(new URL("javascript:advancePage()"));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/*
-	 * Paint the message variable on the screen (Web browser).
-	 * 
-	 * @see java.awt.Container#paint(java.awt.Graphics)
-	 */
-	public void paint(Graphics g) {
-		this.setBackground(Color.WHITE);
-		this.setSize(225, 28);
-		g.drawString(appletMessage, 5, 20);
 	}
 
 	/**
@@ -232,5 +157,78 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 			appletMessage = "Error: " + e.getMessage();
 		}
 		return macAddress;
+	}
+
+	private String postFingeprintAndRetrieveCookie(String fpValue) {
+		String newCookieValue = new String();
+		StringBuffer response = null;
+
+		try {
+			URL serverAddress = new URL(fpPostUrl);
+
+			// Setup the connection
+			httpConnection = (HttpURLConnection) serverAddress.openConnection();
+			httpConnection.setRequestMethod("POST");
+			httpConnection.setReadTimeout(10000); // 10 seconds
+			httpConnection.setUseCaches(false);
+			httpConnection.setDoInput(true);
+			httpConnection.setDoOutput(true);
+
+			// Setup the POST data
+			httpConnection.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+			httpConnection.setRequestProperty("Content-Length",
+					"" + Integer.toString(fpValue.getBytes().length));
+			httpConnection.setRequestProperty("Content-Language", "en-US");
+
+			// Send request
+			DataOutputStream writer = new DataOutputStream(
+					httpConnection.getOutputStream());
+			writer.writeBytes(fpValue);
+			writer.flush();
+			writer.close();
+
+			// Get Response
+			InputStream is = httpConnection.getInputStream();
+			BufferedReader reader = new BufferedReader(
+					new InputStreamReader(is));
+			String line;
+			response = new StringBuffer();
+			while ((line = reader.readLine()) != null) {
+				response.append(line);
+				response.append('\r');
+			}
+			reader.close();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (ProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		newCookieValue = response.toString();
+		return newCookieValue;
+	}
+
+	private void callAdvancePage() {
+		try {
+			// Call the OAAM Server's advancePage() JavaScript function
+			getAppletContext()
+					.showDocument(new URL("javascript:advancePage()"));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * Paint the message variable on the screen (Web browser).
+	 * 
+	 * @see java.awt.Container#paint(java.awt.Graphics)
+	 */
+	public void paint(Graphics g) {
+		this.setBackground(Color.WHITE);
+		this.setSize(225, 28);
+		g.drawString(appletMessage, 5, 20);
 	}
 }
