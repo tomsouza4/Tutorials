@@ -1,0 +1,7 @@
+**DeviceIdentificationExtensionApplet**
+
+This project is the *client-side* Java Applet used in the Device Identification Extension post.
+
+**DeviceIdentificationPlug-In**
+
+This project is the *server-side* Java project used in the Device Identification Extension post.
