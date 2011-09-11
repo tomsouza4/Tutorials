@@ -65,7 +65,7 @@ public class OnOAAMDeviceIdentificationPlugInTest {
 
 	@Test
 	public void testGetPluginHTML() {
-		//System.out.println(plugIn.getPluginHTML());
+		System.out.println(plugIn.getPluginHTML());
 		assertTrue(plugIn.getPluginHTML().contains("applet"));
 	}
 

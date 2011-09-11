@@ -16,3 +16,6 @@ Thee following properties need to be defined in the OAAM Admin Environment Prope
     vcrypt.fingerprint.type.enum.OnOAAMApplet.header_name_nv=java.vendor,Java Vendor,os.name,Operating System,java.vm.specification.vendor,Java VM Spec Vendor,java.runtime.version,Java Version,browser.version,Browser Version,os.version,Operating System Version,java.vm.version,Java Version,java.vm.vendor,Java Vendor
     vcrypt.fingerprint.type.enum.OnOAAMApplet.header_value_nv=t,true,f,false
     bharosa.uio.default.device.identification.scheme=OnOAAMApplet
+    auth.client.type.enum.onooam_applet=101
+    auth.client.type.enum.onooam_applet.name=OnOAAM Applet
+    auth.client.type.enum.onooam_applet.description=OnOAAM Java Applet
