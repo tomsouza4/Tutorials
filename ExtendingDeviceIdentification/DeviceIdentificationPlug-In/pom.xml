@@ -57,7 +57,7 @@
 		<url>http://www.onoaam.com</url>
 	</organization>
 	<build>
-		<finalName>oaam-extensions</finalName>
+		<finalName>oracle.oaam.extensions</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
