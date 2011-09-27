@@ -8,12 +8,14 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.NetworkInterface;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -35,6 +37,7 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 
 	public static final String PLUG_IN_NAME = "OnOAAMApplet";
 	public static final String ROTATING_COOKIE_NAME = "rotatingCookie";
+	public static final String APPLET_PARAMETER_JSESSIONID = "jsessionid";
 
 	// Fingerprint Data
 	private String[] javaSystemPropertyNames = new String[] { "java.vendor",
@@ -78,8 +81,8 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 		String rotatingCookieValue = getRotatingCookieValue();
 
 		// Construct the final fingerprint with the rotating cookie appended
-		String fpValue = "client=" + PLUG_IN_NAME + "&fp="
-				+ constructFingerprint() + "v=" + rotatingCookieValue;
+		String fpValue = "fp=" + constructFingerprint() + "&v=undefined"
+				+ "&client=vfc&action=fp";
 
 		// Post the fingerprint and retrieve the rotating cookie value
 		String newCookieValue = postFingeprintAndRetrieveCookie(fpValue);
@@ -89,8 +92,6 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 
 		// Call OAAM Server's advancePage() JavaScript function
 		callAdvancePage();
-
-		System.out.println(fpValue);
 	}
 
 	/**
@@ -99,8 +100,8 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 	private String getRotatingCookieValue() {
 		Preferences preferences = Preferences
 				.userNodeForPackage(DeviceIdentificationExtensionApplet.class);
-		String rotatingCookieValue = preferences
-				.get(ROTATING_COOKIE_NAME, null);
+		String rotatingCookieValue = preferences.get(ROTATING_COOKIE_NAME,
+				"undefined");
 		return rotatingCookieValue;
 	}
 
@@ -108,9 +109,13 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 	 * 
 	 */
 	private void setRotatingCookieValue(String newRotatingCookieValue) {
-		Preferences preferences = Preferences
-				.userNodeForPackage(DeviceIdentificationExtensionApplet.class);
-		preferences.put(ROTATING_COOKIE_NAME, newRotatingCookieValue);
+		// avoid setting the cookie if no new cookie is given
+		if (newRotatingCookieValue != null
+				& newRotatingCookieValue.length() > 0) {
+			Preferences preferences = Preferences
+					.userNodeForPackage(DeviceIdentificationExtensionApplet.class);
+			preferences.put(ROTATING_COOKIE_NAME, newRotatingCookieValue);
+		}
 	}
 
 	/**
@@ -124,7 +129,11 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 		StringBuffer fingerprint = new StringBuffer();
 		for (String key : fingerprintData.keySet())
 			fingerprint.append(key + "=" + fingerprintData.get(key) + "&");
-		return fingerprint.toString();
+		try {
+			return URLEncoder.encode(fingerprint.toString(), "US-ASCII");
+		} catch (UnsupportedEncodingException e) {
+			return new String();
+		}
 	}
 
 	/**
@@ -181,6 +190,12 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 					"" + Integer.toString(fpValue.getBytes().length));
 			httpConnection.setRequestProperty("Content-Language", "en-US");
 
+			// Add the JSESSIONID cookie to the request
+			String jSessionIdValue = retrieveJsessionId();
+			if (jSessionIdValue != null && jSessionIdValue.length() > 0)
+				httpConnection.setRequestProperty("Cookie", "JSESSIONID="
+						+ jSessionIdValue);
+
 			// Send request
 			DataOutputStream writer = new DataOutputStream(
 					httpConnection.getOutputStream());
@@ -196,7 +211,6 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 			response = new StringBuffer();
 			while ((line = reader.readLine()) != null) {
 				response.append(line);
-				response.append('\r');
 			}
 			reader.close();
 		} catch (MalformedURLException e) {
@@ -207,7 +221,15 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 			e.printStackTrace();
 		}
 
-		newCookieValue = response.toString();
+		if (response != null) {
+			String cleanResponse = response.toString().trim()
+					.replaceAll("\r$", "");
+			// The response will be in the form of &v={cookie value}
+			String[] responsePieces = cleanResponse.split("=");
+			if (responsePieces.length > 1)
+				newCookieValue = responsePieces[1];
+		} else
+			newCookieValue = "undefined";
 		return newCookieValue;
 	}
 
@@ -219,6 +241,11 @@ public class DeviceIdentificationExtensionApplet extends Applet {
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private String retrieveJsessionId() {
+		String jSessionId = getParameter("jsessionid");
+		return jSessionId;
 	}
 
 	/*

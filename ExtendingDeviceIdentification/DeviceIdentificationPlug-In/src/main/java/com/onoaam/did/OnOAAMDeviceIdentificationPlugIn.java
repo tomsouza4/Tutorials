@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.bharosa.common.logger.Logger;
 import com.bharosa.uio.processor.device.DeviceIdentificationProcessorBase;
@@ -135,7 +136,18 @@ public class OnOAAMDeviceIdentificationPlugIn extends
 	 * getPluginHTML()
 	 */
 	public String getPluginHTML() {
-		String pluginHtml = "<applet alt=\"Java is disabled\" name=\"DeviceIdentificationExtensionApplet\" width=\"225\" height=\"28\" code=\"com.onoaam.did.DeviceIdentificationExtensionApplet\" codebase=\"applet\" archive=\"OnOAAMDeviceExtensionApplet.jar\"></applet>";
+		// Obtain the JSESSIONID value and include it as a parameter to the
+		// applet.
+		UIOContext uioContext = UIOContext.getCurrentInstance();
+		String jSessionId = "";
+		if (uioContext != null) {
+			HttpSession session = uioContext.getRequest().getSession(false);
+			if (session != null) {
+				jSessionId = session.getId();
+			}
+		}
+		String pluginHtml = "<applet alt=\"Java is disabled\" name=\"DeviceIdentificationExtensionApplet\" width=\"225\" height=\"28\" code=\"com.onoaam.did.DeviceIdentificationExtensionApplet\" codebase=\"oaam_server\" archive=\"https://sso.mycompany.com/OnOAAMDeviceExtensionApplet.jar\"><param name=\"jsessionid\" VALUE=\""
+				+ jSessionId + "\"></applet>";
 		return pluginHtml;
 	}
 }
