@@ -1,75 +1,90 @@
-= Printing Models whose xml files match oaam_policies/*model*xml
-== Processing oaam_policies/10_model_20_310_3c1b47ab75adfeb113db53395d6d0f0672272a3d2c88cdf0b689a805d6f2b81e.xml
+= Printing Models whose xml files match *model*xml
+== Processing 10_model_20_310_3c1b47ab75adfeb113db53395d6d0f0672272a3d2c88cdf0b689a805d6f2b81e.xml
 Name:  OAAM Registration Policy
 Description:  Registration
-Checkpoint:  15
-Status:  1
+Checkpoint:  Registration
+Status:  Enabled
 Rules:  
   Name:  Register Questions
   Description:  Checks to see if user questions are active.
+  Status:  Enabled
   Action Group:  OAAM Register Challenge Questions
 
   Name:  Register Image and Caption
   Description:  Checks to see if  image and caption need to be registered.
+  Status:  Enabled
   Action Group:  OAAM Register Preferences
 
   Name:  Check Registration
   Description:  Checks to see if user has completed registration & personalization.
+  Status:  Enabled
   Action Group:  OAAM Register
 
   Name:  Skipped registration more than 3 times
   Description:  Triggers when registration is skipped more than 3 times.
+  Status:  Enabled
   Action Group:  OAAM Registration Required
 
   Name:  Register User Information
   Description:  Checks to see if Required User Information is Active.
+  Status:  Enabled
   Action Group:  OAAM Register User Information
 
-== Processing oaam_policies/11_model_21_44_d13f95b471b35d41912ebc4d75aebca4.xml
+== Processing 11_model_21_44_d13f95b471b35d41912ebc4d75aebca4.xml
 Name:  OAAM Challenge Policy
 Description:  Challenge options policy
-Checkpoint:  3
-Status:  1
+Checkpoint:  ChallengeUser
+Status:  Enabled
 Rules:  
   Name:  Check for High Risk Score
   Description:  Checks if the previous checkpoint returned High Risk Score
+  Status:  Enabled
 
   Name:  Challenge SMS Available
   Description:  Checks to see if Challenge SMS is available
+  Status:  Enabled
 
   Name:  Maximum failed SMS attempts
   Description:  Max failed SMS attempts
+  Status:  Enabled
 
   Name:  Maximum failed Email attempts
   Description:  Max failed Email attempts
+  Status:  Enabled
 
   Name:  Maximum failed Question attempts
   Description:  Checks to see Max failed Attempts with questions.
+  Status:  Enabled
 
   Name:  Challenge Email Available
   Description:  Challenge Email
+  Status:  Enabled
 
   Name:  Questions Active
   Description:  User failed to answer question more than specified number of times.
+  Status:  Enabled
 
-== Processing oaam_policies/12_model_18_25_f48a4e6675e01890bd3f4e27f962d863.xml
+== Processing 12_model_18_25_f48a4e6675e01890bd3f4e27f962d863.xml
 Name:  OAAM Post-Authentication Security
 Description:  This policy evaluates the level of risk after authentication is successful. The possible actions are allow block or challenge.
-Checkpoint:  2
-Status:  1
+Checkpoint:  postauth
+Status:  Enabled
 Rules:  
   Name:  Active Anonymizer
   Description:  This rule checks to see if the IP being used has been confirmed as an anonymizer in the last six months by Quova. This rule is only functional for customers who subscribe to the Quova Gold data package.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM Active Anonymizer IP
 
   Name:  Risky countries
   Description:  This rule will trigger if a country has previously been watch listed by the security team.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Monitored Country
 
   Name:  Suspect Anonymizer
   Description:  This rule checks to see if the IP being used has been confirmed as an anonymizer in the last two years but not in the last six months by Quova. This rule is only functional for customers who subscribe to the Quova Gold data package.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Suspected Anonymizer IP
 
@@ -77,390 +92,469 @@ Rules:
   Description:  No positive test results are currently available. The initial anonymizer assignment is based upon other sources and has not yet been verified by Quova. 
 If no positive test results are obtained, this address is removed from the list.
 This rule is only functional for customers who subscribe to the Quova Gold data package.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Unknown Anonymizer IP
 
   Name:  Dormant Device
   Description:  If a device has not been used in thirty days and then more than two users login from it within twenty four hours this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Dormant Device
 
   Name:  Device With Many Failures
   Description:  If there are more than four unsuccessful login attempts from a device within eight hours this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Many Failures from Device
 
   Name:  Maximum Devices Per User
   Description:  If a user logs in using more than 2 devices within eight hours this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Max Devices for User
 
   Name:  Device Maximum Velocity
   Description:  This rule will trigger if a device appears to have traveled faster than jet speed since it's last login in the last 20 hours.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Device Maximum Velocity
 
   Name:  Risky Connection Type
   Description:  This rule will trigger if a connection type has previously been watch listed by the security team.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Risky Connection Type
 
   Name:  User Blocked Recently
   Description:  If a user has been blocked more than twice within the last eight hours this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User Blocked Recently
 
   Name:  Dormant IP
   Description:  If an IP is not from a mobile connection and has not been used in thirty days and then more than one user logs in from it within twenty four hours this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Dormant IP
 
   Name:  Surge Of Users From IP
   Description:  If an IP is not from a mobile connection or one used by AOL and more than three users log in within five minutes this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM IP Multiple Users
 
   Name:  Private Anonymizer
   Description:  IP addresses with this designation allegedly contain anonymous proxies that are not publicly accessible. As such they cannot be routinely tested with automated tools. These addresses typically belong to commercial ventures that sell anonymity services to the public. Addresses with this designation are derived from ownership information or obtained from trusted, high confidence sources. This rule is only functional for customers who subscribe to the Quova Gold data package.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Private Anonymizer IP
 
   Name:  Maximum Users Per Device
   Description:  If more than four users log in using a device within thirty days this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Device Multiple Users
 
   Name:  Risky Device
   Description:  This rule will trigger if a device has previously been watch listed by the security team.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Risky Device
 
   Name:  Risky IP
   Description:  This rule will trigger if an IP has previously been watch listed by the security team.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Risky IP
 
-== Processing oaam_policies/13_model_19_29_f2de70eec1ac5af42dacbc353fc37840.xml
+== Processing 13_model_19_29_f2de70eec1ac5af42dacbc353fc37840.xml
 Name:  OAAM User Preferences Policy
 Description:  Checks to see if a user is registered.
-Checkpoint:  6
-Status:  1
+Checkpoint:  preferences
+Status:  Enabled
 Rules:  
   Name:  User Registered
   Description:  Checks to see if user has completed registration for a virtual device, personalization & challenge questions.
+  Status:  Enabled
 
-== Processing oaam_policies/14_model_16_1179_7053f21016eaa3605085866eec831f66e23e6e2d0f76f1822559ab46fc1deffe.xml
+== Processing 14_model_16_1179_7053f21016eaa3605085866eec831f66e23e6e2d0f76f1822559ab46fc1deffe.xml
 Name:  OAAM AuthenticationPad Policy
 Description:  Policy to determine the OAAM AuthenticationPad to use.
-Checkpoint:  10
-Status:  1
+Checkpoint:  authentiPad
+Status:  Enabled
 Rules:  
   Name:  Register Challenge Quesitons
   Description:  Register Challenge Questions
+  Status:  Enabled
   Action Group:  OAAM Question Pad
 
   Name:  Check if mobile browser is being used by user
   Description:  Check if mobile browser is being used by user
+  Status:  Enabled
   Alert Group:  OAAM Mobile User
 
   Name:  Challenge SMS
   Description:  Checks to see if Challenge SMS is available
+  Status:  Enabled
   Action Group:  OAAM Text Pad
 
   Name:  Registered Image and Caption
   Description:  Checks to see if  image and caption need to be registered.
+  Status:  Enabled
   Action Group:  OAAM Personalized Pad
 
   Name:  Key Pad User
   Description:  Keypad User
+  Status:  Enabled
   Action Group:  OAAM Key Pad
 
   Name:  Challenge Email
   Description:  Challenge Email
+  Status:  Enabled
   Action Group:  OAAM Text Pad
 
   Name:  Challenge Question
   Description:  Challenge Question
+  Status:  Enabled
   Action Group:  OAAM Question Pad
 
-== Processing oaam_policies/15_model_17_125_2c0207df9f0f621efad9bf05ba53b361.xml
+== Processing 15_model_17_125_2c0207df9f0f621efad9bf05ba53b361.xml
 Name:  OAAM Customer Care Ask Question Policy
 Description:  Customer Care Challenge Policy
-Checkpoint:  500
-Status:  1
+Checkpoint:  cc_challenge
+Status:  Enabled
 Rules:  
   Name:  Question Blocked
   Description:  Atleast one question is blocked for challenge.
+  Status:  Enabled
   Action Group:  OAAM Reset Questions
 
   Name:  Maximum Questions Failed
   Description:  Triggers when user failed max allowed questions.
+  Status:  Enabled
 
   Name:  No Questions
   Description:  Triggers when users do not have questions registered. Two possible scenarios are un-registered users and users with questions reset by customer care.
+  Status:  Enabled
   Action Group:  OAAM No User Questions
 
   Name:  Maximum Answers Failed
   Description:  Triggers when user failed max allowed answers with current question. Count is combination of customer care and online challenge.
+  Status:  Enabled
   Action Group:  OAAM Next Question
 
-== Processing oaam_policies/1_model_30_9037_d273ac293cc9f2b73ad102f749bdfe148add9ac767da52f80088c19b860d503f.xml
+== Processing 1_model_30_9037_d273ac293cc9f2b73ad102f749bdfe148add9ac767da52f80088c19b860d503f.xml
 Name:  OAAM Predictive Analysis Policy
 Description:  These rules harness the predictive capabilities of Oracle Data Miner. These rules are only functional if Oracle Data Miner is configured.
-Checkpoint:  2
-Status:  1
+Checkpoint:  postauth
+Status:  Enabled
 Rules:  
   Name:  Predict if current session is fraudulent
   Description:  Check if current session is predicted to be fraudulent using the fraud classification Oracle Data Miner model.
+  Status:  Enabled
   Alert Group:  OAAM Suspected Fraudulent Request
 
   Name:  Predict if current session is anomalous
   Description:  Predict if current session is anomalous based on the anomaly ODM model.
+  Status:  Enabled
   Alert Group:  OAAM Anomalous User Request
 
-== Processing oaam_policies/2_model_28_756_191b80404e6355203967fc22cd39a3e1.xml
+== Processing 2_model_28_756_191b80404e6355203967fc22cd39a3e1.xml
 Name:  OAAM System Deep Analysis No Flash Policy
 Description:  System internal policy for Deep Analysis with No Flash Data
-Checkpoint:  400
-Status:  1
+Checkpoint:  deviceid
+Status:  Enabled
 Rules:  
   Name:  Browser Cookie Valid
   Description:  Browser Cookie Valid
+  Status:  Enabled
   Action Group:  OAAM Device by Secure Cookie
 
   Name:  Browser FP Match 81 to 99
   Description:  Browser FP Match 81 to 99
+  Status:  Enabled
 
   Name:  Browser FP Match 0 to 50
   Description:  Browser FP Match 0 to 50
+  Status:  Enabled
 
   Name:  Browser FP Match 51 to 80
   Description:  Browser FP Match 51 to 80
+  Status:  Enabled
 
   Name:  Browser Known Hdr 51-99
   Description:  Browser Known Header Match 51 to 99
+  Status:  Enabled
 
   Name:  Browser Known Hdr 0-50
   Description:  Browser Known Header Match 0 to 50.
+  Status:  Enabled
 
-== Processing oaam_policies/3_model_29_789_9a5085cdf06980f5c619c8c371ebea90.xml
+== Processing 3_model_29_789_9a5085cdf06980f5c619c8c371ebea90.xml
 Name:  OAAM Device ID Policy
 Description:  Device Identification policy
-Checkpoint:  400
-Status:  1
+Checkpoint:  deviceid
+Status:  Enabled
 Rules:  
   Name:  Browser Cookie Present
   Description:  Checks to see if Browser Cookie is Present.
+  Status:  Enabled
 
   Name:  Browser Cookie Valid
   Description:  Checks to see if browser cookie provided is valid.
+  Status:  Enabled
 
   Name:  Flash Cookie Valid
   Description:  Checks to see if the flash cookie provided is valid.
+  Status:  Enabled
 
   Name:  Browser FP Match
   Description:  Checks to see if the Browser Fingerprints Match.
+  Status:  Enabled
 
   Name:  Flash FP Match
   Description:  Checks to see if Flash Fingerprint Match.
+  Status:  Enabled
 
   Name:  Flash Cookie Present
   Description:  Checks to see if Flash Cookie is Present.
+  Status:  Enabled
 
   Name:  Browser Cookie Disabled
   Description:  Check if the cookie for this device is confirmed to be disabled. This only checks for the last 5 or more disabled devices.
+  Status:  Enabled
 
   Name:  Flash Cookie Disabled
   Description:  Is flash cookie is confirmed to be disabled.
+  Status:  Enabled
 
   Name:  Cookie Match
   Description:  Triggers when both cookies identify same device.
+  Status:  Enabled
 
   Name:  Flash Data Present
   Description:  Checks to see if the flash data present.
+  Status:  Enabled
 
-== Processing oaam_policies/4_model_26_697_384b6b20ba7c7bf79c069aa1714cc95c.xml
+== Processing 4_model_26_697_384b6b20ba7c7bf79c069aa1714cc95c.xml
 Name:  OAAM System Deep Analysis Flash Policy
 Description:  System internal policy for Deep Analysis with Flash
-Checkpoint:  400
-Status:  1
+Checkpoint:  deviceid
+Status:  Enabled
 Rules:  
   Name:  Flash Cookie Empty
   Description:  Checks to see Flash Cookie is Empty
+  Status:  Enabled
 
   Name:  Browser Cookie Valid
   Description:  Checks to see if Browser Cookie is Valid.
+  Status:  Enabled
   Action Group:  OAAM Device by Secure Cookie
 
   Name:  Flash Cookie Valid
   Description:  Flash Cookie Valid
+  Status:  Enabled
   Action Group:  OAAM Device by Digital Cookie
 
   Name:  Browser FP Match 0 to 50
   Description:  Browser FP Match 0 to 50
+  Status:  Enabled
 
   Name:  Browser FP Match 81 to 99
   Description:  Browser FP Match 81 to 99.
+  Status:  Enabled
 
   Name:  Flash FP Match 81 to 99
   Description:  Flash FP Match 81 to 99
+  Status:  Enabled
 
   Name:  Browser FP Match 51 to 80
   Description:  Browser FP Match 51 to 80
+  Status:  Enabled
 
   Name:  Browser Known Hdr 0 To 50
   Description:  Browser Known Header Match 0 to 50
+  Status:  Enabled
 
   Name:  Flash FP Match 0 to 50
   Description:  Flash FP Match 0 to 50
+  Status:  Enabled
 
   Name:  Browser Known Hdr 51-99
   Description:  Browser Known Header Match 51 to 99
+  Status:  Enabled
 
   Name:  Flash FP Match 51 to 80
   Description:  Flash FP Match 51 to 80
+  Status:  Enabled
 
   Name:  Browser Cookie empty
   Description:  Checks to see if Browser Cookie is empty.
+  Status:  Enabled
 
-== Processing oaam_policies/5_model_27_6_7626de745bf9f33925d8cfc07226eccd.xml
+== Processing 5_model_27_6_7626de745bf9f33925d8cfc07226eccd.xml
 Name:  OAAM Pre-Authentication
 Description:  This policy stops fraudulent login attempts before the password is entered.
-Checkpoint:  1
-Status:  1
+Checkpoint:  preauth
+Status:  Enabled
 Rules:  
   Name:  Blacklisted users
   Description:  This rule will trigger if a user has previously been black listed.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM Restricted User
 
   Name:  Blacklisted countries
   Description:  This rule will trigger if a country has been blacklisted in the past.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM Restricted Country
 
   Name:  Blacklisted ISPs
   Description:  This rule will trigger is a login is attempted from an ISP that was  previously blacklisted.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM Resticted ISP
 
   Name:  Blacklisted devices
   Description:  This rule will trigger if the device used has been black listed in the past.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM Restricted Device
 
   Name:  WEBZIP used
   Description:  This rule will trigger if there is a login attempt using the WEBZIP browser. The WEBZIP browser is often utilized by fraudsters to record a website in preparation for a phishing exercise. For this reason it is too risky to allow the use of WEBZIP.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM Resticted software
 
   Name:  Blacklisted IPs
   Description:  This rule will trigger if an IP address has been black listed previously.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM Restricted IP
 
-== Processing oaam_policies/6_model_24_oob_pattern_based_user_profiling_policia_with_all_users_in_picture_ps1.xml
+== Processing 6_model_24_oob_pattern_based_user_profiling_policia_with_all_users_in_picture_ps1.xml
 Name:  OAAM User vs. All Users
 Description:  If a user does not have a sufficient amount of historical data captured this policy will be used to evaluate their current behavior against the historical behavior of all other users. This policy uses pattern-based rules to evaluate risk.
-Checkpoint:  2
-Status:  1
+Checkpoint:  postauth
+Status:  Enabled
 Rules:  
   Name:  Users: Time of day
   Description:  If less than 5% of all other users have accessed within the current time range within the last 6 months this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Users: time of day
 
   Name:  Users: day of the week
   Description:  If less than 5% of all other users have accessed on the current day of the week within the last 6 months this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Users: day of the week
 
   Name:  Users: country
   Description:  If less than 3% of all other users have accessed from this country within the last 6 months this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Users: country
 
   Name:  Users: connection type
   Description:  If less than 5% of all other users have accessed using this connection type within the last 6 months this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Users: connection type
 
   Name:  Users: locale
   Description:  If less than 3% of all other users have accessed using this browser locale within the last year this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM Users: locale
 
-== Processing oaam_policies/7_model_25_51143_424de17591ff7cb74bba3759a9fa6aaf453769e756b08693b43253d09a113439.xml
+== Processing 7_model_25_51143_424de17591ff7cb74bba3759a9fa6aaf453769e756b08693b43253d09a113439.xml
 Name:  OAAM does user have profile
 Description:  This policy checks if pattern auto-learning is enabled and if a user has past behavior recorded. Users with enough recorded behavior will be evaluated against their own profile while users without enough recorded behavior will be evaluated against the profiles of all other users.
-Checkpoint:  2
-Status:  1
+Checkpoint:  postauth
+Status:  Enabled
 Rules:  
   Name:  Does user have a profile
   Description:  This rule checks if the pattern auto-learning is enabled and if the user has a historical behavior profile.
+  Status:  Enabled
 
-== Processing oaam_policies/8_model_22_49_1fc0238108d32b4b415813768f2a8238.xml
+== Processing 8_model_22_49_1fc0238108d32b4b415813768f2a8238.xml
 Name:  OAAM Forgot Password Policy
 Description:  Forgot password flow policy
-Checkpoint:  4
-Status:  1
+Checkpoint:  ForgotPassword
+Status:  Enabled
 Rules:  
   Name:  User maximum velocity
   Description:  This rule will trigger if the physical distance from which the user is attempting to login is a non-plausible distance from the location of the last successful login in respect to the time elapsed.
+  Status:  Enabled
   Action Group:  OAAM Block
   Alert Group:  OAAM User Maximum Velocity
 
   Name:  Always Challenge
   Description:  Always challenge the user
+  Status:  Enabled
   Action Group:  OAAM Challenge
 
-== Processing oaam_policies/9_model_23_oob_pattern_based_user_profiling_policia_ps1.xml
+== Processing 9_model_23_oob_pattern_based_user_profiling_policia_ps1.xml
 Name:  OAAM User vs Themselves
 Description:  If a user has a sufficient amount of historical data captured this policy will be used to evaluate their current behavior against their own historical behavior. This policy uses pattern-based rules to evaluate risk.
-Checkpoint:  2
-Status:  1
+Checkpoint:  postauth
+Status:  Enabled
 Rules:  
   Name:  Routing type
   Description:  If a user has logged in less than 6% of the time using this routing type  within the last month this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: routing type
 
   Name:  Device
   Description:  If a user has logged in less than 10% of the time using this device within the last month this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: device
 
   Name:  Day of the week
   Description:  If a user has not logged in on this day of the week within the last three months this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: day of the week
 
   Name:  Country & State
   Description:  If a user has logged in less than 10% of the time from this State  within the last month this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: state
 
   Name:  Time of day
   Description:  If a user has accessed within the current time range less than 3% of the time within the last month this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: time of day
 
   Name:  ASN
   Description:  If a user has logged in less than 6% of the time using this ASN within the last month this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: ASN
 
   Name:  Country
   Description:  If a user has logged in less than 20% of the time from this country  within the last 3 months this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: country
 
   Name:  ISP
   Description:  If a user has logged in less than 6% of the time using this ISP  within the last month this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: ISP
 
   Name:  Connection type
   Description:  If a user has logged in less than 6% of the time using this connection type  within the last month this rule will trigger.
+  Status:  Enabled
   Action Group:  OAAM Challenge
   Alert Group:  OAAM User: connection type
+
