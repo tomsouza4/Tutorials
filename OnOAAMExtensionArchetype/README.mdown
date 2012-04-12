@@ -1,0 +1,10 @@
+**OnOAAMExtensionArchetype**
+
+This project contains a Maven archetype that can be used to create OAAM Extension libraries that are built using maven.  Once downloaded, follow the steps below to start using the archetype:
+
+    cd archetype
+    mvn install
+    cd /path/to/eclipse/workspace
+    mvn archetype:generate -DarchetypeCatalog=local -DgroupId=com.onoaam -DarchetypeGroupId=com.onoaam -DartifactId=oracle.oaam.extensions -DarchetypeArtifactId=oracle.oaam.extensions-archetype -Dversion=99.9.9.9.9
+    mvn clean eclipse:eclipse
+    mvn clean package
